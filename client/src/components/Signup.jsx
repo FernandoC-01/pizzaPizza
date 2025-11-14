@@ -1,11 +1,12 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Signup = () => {
 
     const [email, setEmail] = useState("")
     const [phoneNum, setPhoneNum] = useState ("")
     const [password, setPassword] = useState ("")
+    const navigate = useNavigate()
 
     const handleSignup = (e) => {
 
@@ -15,10 +16,10 @@ const Signup = () => {
         const users = JSON.parse(localStorage.getItem("users")) || []
 
         //checks if user in array has existing email
-        const exists = users.some((u) => u.email === email)
+        const exists = users.some((u) => u.email === email || u.phoneNum === phoneNum)
 
         if (exists) {
-            alert("Email already exists.")
+            alert("Account already exists with this email or phone number.")
             return
         }
 
@@ -26,6 +27,7 @@ const Signup = () => {
         users.push(newUser) //add user to array
         localStorage.setItem("users", JSON.stringify(users)) //convert array to string to save
         alert("Signup was a success. You can now log in.")
+        navigate("/") //navigates user to login if signup success
     }
 
 
