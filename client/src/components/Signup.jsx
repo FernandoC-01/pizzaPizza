@@ -15,7 +15,7 @@ const Signup = () => {
         const users = JSON.parse(localStorage.getItem("users")) || []
 
         //checks if user in array has existing email
-        const exists = users.some((u) => u.email = email)
+        const exists = users.some((u) => u.email === email)
 
         if (exists) {
             alert("Email already exists.")
