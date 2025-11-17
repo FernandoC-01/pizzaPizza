@@ -3,19 +3,31 @@ import { useState } from "react"
 
 export default function OrderList() 
 {
-    const [orderItems, setOrder,] = useState([])
+    const [orderItems,  SetOrder,] = useState([])
+
+    const [orderPrice, SetPrice,] = useState([])
+     
+    const [totalPrice, SetTotalPrice] = useState(0.0)
 
     const [foodItem, SetFoodItem] = useState('')
-    
+
+    // Needs to add a way to receive inputs from menu, and needs to remove the input.
+    // Adds the item and price to respective lists and totals the order
     function AddToOrder()
     {
         if (foodItem)
         {
-            setOrder([...orderItems, foodItem])
+            SetOrder([...orderItems, foodItem])
+
+            SetPrice([...orderPrice, 5.25])
+
+            SetTotalPrice(orderPrice.reduce((accumulator, orderPrice) => accumulator + orderPrice,0))
+
             SetFoodItem("")
         }
         
     }
+
 
     function NewItemInputHandeler(event)
     {
@@ -33,11 +45,17 @@ export default function OrderList()
 
             <ul>
                 {orderItems.map((orderItems, index) => (
-                    <li key={index}> {orderItems} </li>
+                    <li key={index}> {orderItems}....................{orderPrice[index]} </li>
                 ) )}
+                Total Price:  {totalPrice} 
+             
             </ul>
 
-            <button onClick={AddToOrder}>  Order?</button>
+            <button onClick={AddToOrder} >  Order?</button>
+
+
+               
+
 
         </div>
 
