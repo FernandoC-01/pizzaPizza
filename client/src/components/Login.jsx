@@ -27,36 +27,42 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="auth-page">
+            <div className="auth-card">
 
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
+                <h1 className="auth-title">Login</h1>
 
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
+                <form className="auth-form" onSubmit={handleLogin}>
 
-                <button type="submit">Login</button>
-            </form>
+                    <div className="form-group">
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
 
-            <p>
-                Don't have an account yet?<Link to="/signup">Sign up</Link>
-            </p>
+                    <div className="form-group">
+                        <label>Password:</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <button className="auth-btn" type="submit">Login</button>
+
+                </form>
+
+                <p className="auth-footer">
+                    Don't have an account yet?<Link to="/signup">Sign up</Link>
+                </p>
+                
+            </div>
         </div>
     )
 }

@@ -32,47 +32,52 @@ const Signup = () => {
 
 
     return (
-        <div>
-            <h1>Signup</h1>
+        <div className="auth-page">
+            <div className="auth-card">
 
-            <form onSubmit={handleSignup}>
-                <div>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
+                <h1 className="auth-title">Signup</h1>
 
-                <div>
-                    <label>Phone Number:</label>
-                    <input
-                        type="phoneNum"
-                        value={phoneNum}
-                        onChange={(e) => setPhoneNum(e.target.value)}
-                        required
-                    />
-                </div>
+                <form className="auth-form" onSubmit={handleSignup}>
 
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
+                    <div className="form-group">
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />  
+                    </div>
 
-                <button type="submit">Create Account</button>
+                    <div className="form-group">
+                        <label>Phone Number:</label>
+                        <input
+                            type="phoneNum"
+                            value={phoneNum}
+                            onChange={(e) => setPhoneNum(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Password:</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+
+                    <button className="auth-btn" type="submit">Create Account</button>
         
-            </form>
+                </form>
 
-            <p>
-                Already have an account? <Link to="/">Login</Link>
-            </p>
+                <p className="auth-footer">
+                    Already have an account? <Link to="/">Login</Link>
+                </p>
+                
+            </div>
         </div>
     )
 }
