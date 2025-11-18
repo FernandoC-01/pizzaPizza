@@ -5,7 +5,7 @@ import './App.css'
 import Hello, { } from "./components/Hello"
 
 import OrderList from './components/OrderList'
-import TestingProps from './components/TestingProps'
+
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
       </div> */}
 
       <div>
-        <OrderList/>
+          <OrderList/>
       </div>
       
 
