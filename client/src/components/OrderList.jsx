@@ -6,7 +6,7 @@ export default function OrderList()
 {
     const [orderItems,  SetOrder,] = useState([]);
 
-    const [orderPrice, SetPrice,] = useState([0.0]);
+    const [orderPrice, SetPrice,] = useState([]);
      
     const [totalPrice, SetTotalPrice] = useState(0.0);
 
@@ -21,6 +21,7 @@ export default function OrderList()
     const [state, SetState] = useState('');
     const [zip, SetZip] = useState('');
 
+    // const hasOrder = ((orderItems)==null);
 
     const ChangeOption = () => {
         SetDelveryOrPickup(!deliveryOrPickup)
@@ -52,53 +53,47 @@ export default function OrderList()
         SetFoodItem(event.target.value)
     }
 
-      function HandleAdditionalInfo(event)
-    {
-        SetAdditionalInfo(event.target.value)
-    }
-      function HandleStreetAdress(event)
-    {
-        SetCity(event.target.value)
-    }
-        function HandleCity(event)
-    {
-        SetAdditionalInfo(event.target.value)
-    }
-      function HandleState(event)
-    {
-        SetState(event.target.value)
-    }
-        function HandleZip(event)
-    {
-        SetZip(event.target.value)
-    }
-
-
-
 
     return(
+
         <div className="orderPage">
+
             <h2>Your Order</h2>
-
-            <input type="text" value = {foodItem} onChange = {NewItemInputHandeler}/>
-
+              {/* Temp text to allow food items to be added */}
+            <input type="text" value = {foodItem} onChange = {NewItemInputHandeler}/> 
+      
             <p>Value: {foodItem}</p>
-
-            <ul>
-                {orderItems.map((orderItems, index) => (
-                    <li key={index}> {orderItems}...................${orderPrice[index]} </li>
-                ) )}
-                Total Price:  {totalPrice} 
-             
-            </ul>
+  
             {/* Temp button to test lists */}
-            <button onClick={AddToOrder} >  Order?</button>
+            <button onClick={AddToOrder} >  Order?</button>            
+            {orderItems.length > 0 && (
+                <div>
+                    <ul>
+                    {orderItems.map((orderItems, index) => (
+                        <li key={index}> {orderItems}...................${orderPrice[index]} </li>
+                    ))}
+                    Total Price:  {totalPrice} 
+                
+                    </ul>
+                </div>
+            )}
 
-            
+            {orderItems.length == 0  && (
+                <div>
+                    <ul>
+                        Looking empty
+
+
+                        Fill it with items from our delicious
+                    </ul>
+
+                </div>
+            )}
+             <button> Menu </button>
                
             <button onClick={ChangeOption}> Delivery Or Pickup </button>
-                
-    
+      
+
 
             
       {/*Shows Delivery Options When deliveryOrPickup is false and Pickup when it is true*/}
@@ -106,33 +101,37 @@ export default function OrderList()
       {deliveryOrPickup && (
             <div>
                  <h4>Addtional Info</h4>
-                <input type="text" value = {addiontalInfo} onChange={HandleAdditionalInfo}/>
+                <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
             </div>
         )}
 
         {!deliveryOrPickup && (
             <div>
+
+                     {/* <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        /> */}
                 <h4>Street Address</h4>
-                <input type="text" value = {streetAdress} onChange={HandleStreetAdress}/>
+                
+                <input type="text" value = {streetAdress} onChange={(e) => SetStreetAdress(e.target.value)}/>
 
                 <h4>City</h4>
-                <input type="text" value = {city} onChange={HandleCity}/>
+                <input type="text" value = {city} onChange={(e) => SetCity(e.target.value)}/>
 
                 <h4>State</h4>
-                <input type="text" value = {state} onChange={HandleState}/>
+                <input type="text" value = {state} onChange={(e) => SetState(e.target.value)}/>
 
                 <h4>ZIP</h4>
-                <input type="text" value = {zip} onChange={HandleZip}/>
+                <input type="text" value = {zip} onChange={(e) => SetZip(e.target.value)}/>
 
                 <h4>Addtional Info</h4>
-                <input type="text" value = {addiontalInfo} onChange={HandleAdditionalInfo}/>
+                <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
             </div>
         )}
 
- 
-
-
-                
         </div>
 
 
