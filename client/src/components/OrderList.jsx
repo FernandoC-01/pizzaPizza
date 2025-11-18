@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../styles/OrderStyle.css"
 
 
 export default function OrderList() 
@@ -76,7 +77,7 @@ export default function OrderList()
 
 
     return(
-        <div>
+        <div className="orderPage">
             <h2>Your Order</h2>
 
             <input type="text" value = {foodItem} onChange = {NewItemInputHandeler}/>
