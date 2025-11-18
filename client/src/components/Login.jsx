@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import "../styles/auth.css"
 
 const Login = () => {
 
@@ -61,7 +62,7 @@ const Login = () => {
                 <p className="auth-footer">
                     Don't have an account yet?<Link to="/signup">Sign up</Link>
                 </p>
-                
+
             </div>
         </div>
     )
