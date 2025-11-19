@@ -16,6 +16,15 @@ const Signup = () => {
 
         e.preventDefault() //stops reloading of page
 
+        const phoneDigits = phoneNum.replace(/\D/g, "")
+
+        //make sure phone number is 10 digits
+        if (phoneDigits.length !== 10){
+            setMessage("Phone number must be 10 digits.")
+            setMessageType("error")
+            return
+        }
+
         //gets existing users, converts string into JS array or empty array if null
         const users = JSON.parse(localStorage.getItem("users")) || []
 
@@ -38,6 +47,24 @@ const Signup = () => {
         setTimeout(() => {
             navigate("/")
         }, 1500)
+    }
+
+    const handlePhoneChange = (e) => {
+        let num = e.target.value
+
+        num = num.replace(/\D/g, "") //replaces every (g) non-digit (\D) with nothing ("")
+        
+        //setup format for phone number
+        if (num.length <= 3){
+            num = num.replace(/(\d{1,3})/, "($1)") //format for 1-3 digits
+        } else if (num.length <= 6) {
+            num = num.replace(/(\d{1,3})(\d{1,3})/, "($1)-$2") //format for 4-6 digits 
+        } else {
+            num = num.replace(/(\d{1,3})(\d{1,3})(\d{1,4})/, "($1)-$2-$3") //format for 7-10 digits
+        }
+
+        setPhoneNum(num)
+            
     }
 
 
@@ -66,7 +93,8 @@ const Signup = () => {
                         <input
                             type="phoneNum"
                             value={phoneNum}
-                            onChange={(e) => setPhoneNum(e.target.value)}
+                            onChange={handlePhoneChange}
+                            maxLength="14"
                             required
                         />
                     </div>
