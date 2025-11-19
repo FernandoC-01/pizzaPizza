@@ -8,6 +8,8 @@ const Signup = () => {
     const [phoneNum, setPhoneNum] = useState ("")
     const [password, setPassword] = useState ("")
     const navigate = useNavigate()
+    const [message, setMessage] = useState("")
+    const [messageType, setMessageType] = useState("")
 
     const handleSignup = (e) => {
 
@@ -20,14 +22,16 @@ const Signup = () => {
         const exists = users.some((u) => u.email === email || u.phoneNum === phoneNum)
 
         if (exists) {
-            alert("Account already exists with this email or phone number.")
+            setMessage("Account already exists with this email or phone number.")
+            setMessageType("error")
             return
         }
 
         const newUser = { email, phoneNum, password } //create new user
         users.push(newUser) //add user to array
         localStorage.setItem("users", JSON.stringify(users)) //convert array to string to save
-        alert("Signup was a success. You can now log in.")
+        setMessage("Signup was a success. You can now log in.")
+        setMessageType("success")
         navigate("/") //navigates user to login if signup success
     }
 
@@ -81,6 +85,12 @@ const Signup = () => {
                 <p className="auth-footer">
                     <Link to="/home">Return to Homepage</Link>
                 </p>
+
+                {message &&(
+                    <div className={`auth-message ${messageType}`}>
+                        {message}
+                    </div>
+                )}
 
             </div>
         </div>

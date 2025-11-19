@@ -79,3 +79,24 @@
 .auth-footer a:hover {
     text-decoration: underline;
 }
+
+.auth-message {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.auth-message.success {
+    background-color: #d4edda;
+    color: green;
+    border: 1px solid #c3e6cb;
+}
+
+.auth-message.error {
+    background-color: #f8d7da;
+    color: red;
+    border: 1px solid #f5c6cb;
+}

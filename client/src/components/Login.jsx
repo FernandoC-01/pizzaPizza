@@ -7,6 +7,8 @@ const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+    const [message, setMessage] = useState("")
+    const [messageType, setMessageType] = useState("")
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -20,15 +22,18 @@ const Login = () => {
         )
 
         if (found) {
-            alert("Login successful!")
+            setMessage("Login successful!")
+            setMessageType("success")
             navigate("/menu") //navigates to menu page after login
         } else {
-            alert("Invalid email or password")
+            setMessage("Invalid email or password")
+            setMessageType("error")
         }
     }
 
     return (
         <div className="auth-page">
+
             <div className="auth-card">
 
                 <h1 className="auth-title">Login</h1>
@@ -66,6 +71,12 @@ const Login = () => {
                 <p className="auth-footer">
                     <Link to="/home">Return to Homepage</Link>
                 </p>
+
+                {message && (
+                    <div className={`auth-message ${messageType}`}>
+                        {message}
+                    </div>
+                )}
 
             </div>
         </div>
