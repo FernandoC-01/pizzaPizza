@@ -32,7 +32,11 @@ const Signup = () => {
         localStorage.setItem("users", JSON.stringify(users)) //convert array to string to save
         setMessage("Signup was a success. You can now log in.")
         setMessageType("success")
-        navigate("/") //navigates user to login if signup success
+
+        //Navigate to login after successful signup (after 1.5 sec)
+        setTimeout(() => {
+            navigate("/")
+        }, 1500)
     }
 
 

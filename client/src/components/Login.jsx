@@ -24,7 +24,12 @@ const Login = () => {
         if (found) {
             setMessage("Login successful!")
             setMessageType("success")
-            navigate("/menu") //navigates to menu page after login
+
+            //Navigate to menu after successful login (after 1 sec)
+            setTimeout(() => {
+                navigate("/menu")
+            }, 1000)
+            
         } else {
             setMessage("Invalid email or password")
             setMessageType("error")
