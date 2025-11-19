@@ -8,7 +8,7 @@ export default function OrderList()
 
     const [orderPrice, SetPrice,] = useState([]);
      
-    const [totalPrice, SetTotalPrice] = useState(0.0);
+    const [totalPrice, SetTotalPrice] = useState();
 
     const [foodItem, SetFoodItem] = useState('');
 
@@ -56,82 +56,94 @@ export default function OrderList()
 
     return(
 
-        <div className="orderPage">
+        <div className="order-page ">
 
-            <h2>Your Order</h2>
-              {/* Temp text to allow food items to be added */}
-            <input type="text" value = {foodItem} onChange = {NewItemInputHandeler}/> 
-      
-            <p>Value: {foodItem}</p>
-  
-            {/* Temp button to test lists */}
-            <button onClick={AddToOrder} >  Order?</button>            
-            {orderItems.length > 0 && (
-                <div>
-                    <ul>
-                    {orderItems.map((orderItems, index) => (
-                        <li key={index}> {orderItems}...................${orderPrice[index]} </li>
-                    ))}
-                    Total Price:  {totalPrice} 
+            <div className="order-title">Your Order</div>
+                 
+            <div className="order-input-card">
+                {/*Shows Delivery Options When deliveryOrPickup is false and Pickup options when it is true*/}
+                <button className="deilveryOrPickup-btn" onClick={ChangeOption}> Delivery Or Pickup </button>
+
+                {deliveryOrPickup && ( // Pickup options
+                    <div className="order-inputs" >
+                        <h4>Addtional Info</h4>
+                        <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
+                    </div>
+                )}
+
+                {!deliveryOrPickup && ( //Delivery Options
+                    <div className="order-inputs" > 
+                        <h4>Street Address</h4>
+                        
+                        <input type="text" value = {streetAdress} onChange={(e) => SetStreetAdress(e.target.value)}/>
+
+                        <h4>City</h4>
+                        <input type="text" value = {city} onChange={(e) => SetCity(e.target.value)}/>
+
+                        <h4>State</h4>
+                        <input type="text" value = {state} onChange={(e) => SetState(e.target.value)}/>
+
+                        <h4>ZIP</h4>
+                        <input type="text" value = {zip} onChange={(e) => SetZip(e.target.value)}/>
+
+                        <h4>Addtional Info</h4>
+                        <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
+
+                        {/* <button className="checkout-btn"> Check Out</button> */}
+                    </div>
+                )}
+
                 
-                    </ul>
-                </div>
-            )}
+                <button className="checkout-btn"> Check Out</button>
 
-            {orderItems.length == 0  && (
-                <div>
-                    <ul>
-                        Looking empty
+            </div>
 
 
-                        Fill it with items from our delicious
-                    </ul>
 
-                </div>
-            )}
-             <button> Menu </button>
-               
-            <button onClick={ChangeOption}> Delivery Or Pickup </button>
+                
+            
+            <div className="order-list" >
+                
+                
+                {/* Temp text to allow food items to be added */}
+                <input type="text" value = {foodItem} onChange = {NewItemInputHandeler}/> 
+        
+                <p>Value: {foodItem}</p>
+    
+                {/* Temp button to test lists */}
+                <button className=" order-btn" onClick={AddToOrder} >  Order?</button>        
+
+                {orderItems.length > 0 && (
+                    <div>
+                        <ul>
+                        {orderItems.map((orderItems, index) => (
+                            <li key={index}> {orderItems}...................${orderPrice[index]} </li>
+                        ))}
+                        Total Price:  {totalPrice} 
+                    
+                        </ul>
+                    </div>
+                )}
+
+                {orderItems.length == 0  && (
+                    <div>
+                        <ul>
+                            Looking empty
+
+
+                            Fill it with items from our delicious
+                        </ul>
+
+                    </div>
+                )}
+                <button className=" order-btn" > Menu </button>
+                
+          </div>
       
 
 
             
-      {/*Shows Delivery Options When deliveryOrPickup is false and Pickup when it is true*/}
-      
-      {deliveryOrPickup && (
-            <div>
-                 <h4>Addtional Info</h4>
-                <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
-            </div>
-        )}
-
-        {!deliveryOrPickup && (
-            <div>
-
-                     {/* <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        /> */}
-                <h4>Street Address</h4>
-                
-                <input type="text" value = {streetAdress} onChange={(e) => SetStreetAdress(e.target.value)}/>
-
-                <h4>City</h4>
-                <input type="text" value = {city} onChange={(e) => SetCity(e.target.value)}/>
-
-                <h4>State</h4>
-                <input type="text" value = {state} onChange={(e) => SetState(e.target.value)}/>
-
-                <h4>ZIP</h4>
-                <input type="text" value = {zip} onChange={(e) => SetZip(e.target.value)}/>
-
-                <h4>Addtional Info</h4>
-                <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
-            </div>
-        )}
-
+ 
         </div>
 
 
