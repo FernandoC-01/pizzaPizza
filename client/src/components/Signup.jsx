@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/auth.css"
+import Header from "./Header"
 
 const Signup = () => {
 
@@ -41,6 +42,8 @@ const Signup = () => {
 
 
     return (
+        <>
+        <Header />
         <div className="auth-page">
             <div className="auth-card">
 
@@ -98,6 +101,7 @@ const Signup = () => {
 
             </div>
         </div>
+        </>
     )
 }
 
