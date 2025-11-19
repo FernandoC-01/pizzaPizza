@@ -63,6 +63,10 @@ const Login = () => {
                     Don't have an account yet? <Link to="/signup">Sign up</Link>
                 </p>
 
+                <p className="auth-footer">
+                    <Link to="/home">Return to Homepage</Link>
+                </p>
+
             </div>
         </div>
     )

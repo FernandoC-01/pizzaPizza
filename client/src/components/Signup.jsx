@@ -78,6 +78,10 @@ const Signup = () => {
                     Already have an account? <Link to="/">Login</Link>
                 </p>
 
+                <p className="auth-footer">
+                    <Link to="/home">Return to Homepage</Link>
+                </p>
+
             </div>
         </div>
     )
