@@ -25,11 +25,14 @@ const Login = () => {
             setMessage("Login successful!")
             setMessageType("success")
 
+            //store logged in user for other pages to display
+            localStorage.setItem("currentUser", JSON.stringify(found))
+
             //Navigate to menu after successful login (after 1 sec)
             setTimeout(() => {
                 navigate("/menu")
             }, 1000)
-            
+
         } else {
             setMessage("Invalid email or password")
             setMessageType("error")
