@@ -1,0 +1,20 @@
+.meanContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.header {
+    background-color: rgb(165, 95, 95);
+    width: 100vw;
+}
+
+.foot{
+    display: flex;
+    flex-direction: column;
+}
