@@ -14,6 +14,16 @@ function PaymentPage() {
     //STATE: store error message after failed payment
     const [errorMessage, setErrorMessage] = useState(' ');
 
+    //MOCK DATA: order details (replace with real data later)
+    const orderData = {
+        items: [
+            { name: 'Pepperoni Pizza(Large)', price:15.99, quantity: 1 },
+        ],
+        subtoal: 15.99,
+        tax: 1.28,
+        total: 17.27
+    };
+
     //FUNCTION: handle payment form submission
     const handlePaymentSubmit = (paymentData) => {
         console.log('Payment submitted:', paymentData);
