@@ -2,11 +2,12 @@
 {
     display: flex;
     flex-direction: row;
-    background: #b36806;/*orange*/
-
-    min-height: 100%; /*full height*/
-    min-width: 100%; /*full height*/
-    justify-content: center; /*horizontal*/
+  background-image: url("E:\downloads\CodingStuff\PizzaPizzaProject\pizzaPizza\client\src\assets\WebBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .order-title
@@ -15,11 +16,11 @@
     font-size: 5rem;
     background:  #e6cf90;
     padding: 2rem;
-    width: 750px;
-    height: 250px;
+    min-width: 50px;
+    height: 140px;
     font-weight: bold;
     position: relative;
-    bottom: 400px;
+    top: 10px;
        
 }
 
@@ -46,7 +47,7 @@
 
     position: relative;
     right: 450px;
-    top: 230px;
+    top: 450px;
 }
 
 .order-inputs 
@@ -98,7 +99,7 @@
 
 
     position: relative;
-    top: 200;
+    top: 200px;
     left: -50px;
 
 }
