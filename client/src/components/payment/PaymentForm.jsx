@@ -120,7 +120,7 @@ function PaymentForm({ onSubmit }) {
             </div>
 
             <button type="submit" className="submit-button">
-                Pay $XX.XX
+                Pay ${amount ? amount.toFixed(2):'0.00'}
                 </button>
         </form>
     );
