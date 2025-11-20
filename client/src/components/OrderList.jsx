@@ -8,7 +8,7 @@ export default function OrderList()
 
     const [orderPrice, SetPrice,] = useState([]);
      
-    const [totalPrice, SetTotalPrice] = useState();
+    const [totalPrice, SetTotalPrice] = useState(0.0);
 
     const [foodItem, SetFoodItem] = useState('');
 
@@ -21,10 +21,31 @@ export default function OrderList()
     const [state, SetState] = useState('');
     const [zip, SetZip] = useState('');
 
-    // const hasOrder = ((orderItems)==null);
 
     const ChangeOption = () => {
         SetDelveryOrPickup(!deliveryOrPickup)
+    }
+
+
+    function DeleteOrderEntry(indexToRemove)
+    {
+        const newOrderItems = orderItems.filter((item,index) => index !== indexToRemove);
+ 
+        
+        
+
+
+        SetOrder(newOrderItems)
+
+        const newOrderPrices = orderPrice.filter((price,index) => index !== indexToRemove);
+
+        SetPrice(newOrderPrices)
+
+
+        console.log("newOP: ", newOrderPrices, "   SetOP: ", orderPrice, "|  newOI: ", newOrderItems, " SetOI: ",orderItems);
+
+        SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice))
+
     }
 
 
@@ -38,14 +59,23 @@ export default function OrderList()
 
             SetOrder([...orderItems, foodItem])
 
-            SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice))//Idk why but doesn't add the first order you put in.
+          
+            
+            SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice))//Idk why but doesn't add the first order you put in. 
+                                                                        //Ok is a side note but for some reason when this runs it is running on a version of order price without the most recent added price. Cause if you run it again it will add it up properly.
+           
 
+
+         console.log(orderPrice, orderItems)
             SetFoodItem("")
         }
            
-      
+
+
         
     }
+
+    
 
     //Used for testing inputs for orderItem
     function NewItemInputHandeler(event)
@@ -113,13 +143,15 @@ export default function OrderList()
                 {/* Temp button to test lists */}
                 <button className=" order-btn" onClick={AddToOrder} >  Order?</button>        
 
-                {orderItems.length > 0 && (
+                {orderItems.length > 0 && (//Shows the list of items in order
                     <div>
                         <ul>
                         {orderItems.map((orderItems, index) => (
-                            <li key={index}> {orderItems}...................${orderPrice[index]} </li>
+                            <li key={index}> {orderItems}...................${orderPrice[index]}   <button onClick={()=> DeleteOrderEntry(index)} > x</button> </li>
                         ))}
-                        Total Price:  {totalPrice} 
+                
+                        Total Price:  {orderPrice.reduce((sum, orderPrice) => sum + orderPrice)} 
+                        {console.log(orderPrice, orderItems)}
                     
                         </ul>
                     </div>
