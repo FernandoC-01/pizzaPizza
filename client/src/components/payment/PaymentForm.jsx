@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function PaymentForm({ onSubmit }) {
+function PaymentForm({ onSubmit, amount = 25.99 }) {
     //STATE: form fields
     const [cardNumber, setCardNumber] = useState('');
     const [cardHolderName, setCardHolderName] = useState('');
