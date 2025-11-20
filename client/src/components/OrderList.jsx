@@ -6,6 +6,9 @@ export default function OrderList()
 {
     const [orderItems,  SetOrder,] = useState([]);
 
+    const [orderDescriptions,  SetDescription,] = useState([]);
+
+
     const [orderPrice, SetPrice,] = useState([]);
      
     // const [totalPrice, SetTotalPrice] = useState(0.0); commented out for not caused to many problems can re-add if need the variable
@@ -30,19 +33,17 @@ export default function OrderList()
     function DeleteOrderEntry(indexToRemove)
     {
         const newOrderItems = orderItems.filter((item,index) => index !== indexToRemove);
- 
-
 
         SetOrder(newOrderItems)
+
 
         const newOrderPrices = orderPrice.filter((price,index) => index !== indexToRemove);
 
         SetPrice(newOrderPrices)
 
+        const newOrderDescriptions = orderDescriptions.filter((description,index) => index !== indexToRemove);
 
-        console.log("newOP: ", newOrderPrices, "   SetOP: ", orderPrice, "|  newOI: ", newOrderItems, " SetOI: ",orderItems);
-
-        // SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice))
+        SetDescription(newOrderDescriptions)
 
     }
 
@@ -57,6 +58,8 @@ export default function OrderList()
 
             SetOrder([...orderItems, foodItem])
 
+            
+            SetDescription([...orderDescriptions,'Peperoni'])
           
             
           //SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice)) Idk why but doesn't add the first order you put in. 
@@ -135,11 +138,21 @@ export default function OrderList()
                     <div>
                         <ul>
                         {orderItems.map((orderItems, index) => (
-                            <li key={index}> {orderItems}...................${orderPrice[index]}   <button onClick={()=> DeleteOrderEntry(index)} > x</button> </li>
+                            <li key={index}> {orderItems}...................${orderPrice[index]}   
+                            
+                                <button onClick={()=> DeleteOrderEntry(index)} > x</button>
+
+                                <br />
+                            
+                                  {orderDescriptions[index]}
+                                
+                            
+                            </li>
                         ))}
                 
                         Total Price:  {orderPrice.reduce((sum, orderPrice) => sum + orderPrice)} 
-                        {console.log(orderPrice, orderItems)}
+                        {console.log(orderDescriptions)}
+                      
                     
                         </ul>
                     </div>
