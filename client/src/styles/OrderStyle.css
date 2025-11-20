@@ -1,18 +1,125 @@
 .order-page 
 {
+    display: flex;
+    flex-direction: row;
+    background: #b36806;/*orange*/
+
+    min-height: 100%; /*full height*/
+    min-width: 100%; /*full height*/
+    justify-content: center; /*horizontal*/
+}
+
+.order-title
+{
+  
+    font-size: 5rem;
+    background:  #e6cf90;
+    padding: 2rem;
+    width: 750px;
+    height: 250px;
+    font-weight: bold;
+    position: relative;
+    bottom: 400px;
+       
+}
+
+.order-btn
+{
+
+    background: #ffe8ab;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
     color: black;
-    min-height: 1080px; /*full height*/
-    min-width: 1920px;
-   justify-content: horizontal; /*horizontal*/
-    display: flex; /*flexbot layout*/
-    align-items: center; /*vertical*/
-    background: #b36806 /*orange*/
-   
+}
+
+.order-input-card
+{
+    padding-left: 20px;
+    background:#fdf1d0;
+    height: 550px;
+    min-width: 500px;
+    border-radius: 12px;
+    text-align: center;
+
+
+    position: relative;
+    right: 450px;
+    top: 230px;
+}
+
+.order-inputs 
+{
+    position: relative;
+    text-align: left;
+    bottom: 60px;
+}
+
+.deilveryOrPickup-btn
+{
+    background: #ffe8ab;
+    color: rgb(0, 0, 0);
+    border-radius: 4cap;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+
+    position:relative;
+    top: -90px;
     
 }
 
+.checkout-btn
+{
+    background: #ffe8ab;
+    color: rgb(0, 0, 0);
+    border-radius: 4cap;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
 
-.order-title
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+   
+}
+
+.order-list
+{
+    background:#fdf1d0;
+    min-height: 700px;
+    min-width: 500px;
+   
+
+
+    position: relative;
+    top: 200;
+    left: -50px;
+
+}
+
+/* Old syle liked it but I dont think It will work with other pages.
+
+
+/* .order-page 
+{
+    color: black;
+    min-height: 1080px; 
+    min-width: 1920px;
+   justify-content: horizontal; 
+    display: flex; 
+    align-items: center; 
+    background: #b36806 
+   
+    
+} */
+
+/* .order-title
 {
   
     font-size: 5rem;
@@ -23,9 +130,9 @@
     position: relative;
     bottom: 400px;
        
-}
+} */
 
-.order-btn
+/* .order-btn
 {
     padding: 0.8rem;
     background: #ffe8ab;
@@ -37,10 +144,6 @@
     transition: 0.2s ease;
     color: black;
 }
-
-
-
-
 
 .order-input-card
 {
@@ -101,8 +204,6 @@
    
 }
 
-
-
 .order-list
 {
     background:#fdf1d0;
@@ -116,9 +217,7 @@
     top: 200;
     left: -50px;
 
-}
-
-
+} */
 
 
 

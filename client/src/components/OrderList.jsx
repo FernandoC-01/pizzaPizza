@@ -8,7 +8,7 @@ export default function OrderList()
 
     const [orderPrice, SetPrice,] = useState([]);
      
-    const [totalPrice, SetTotalPrice] = useState(0.0);
+    // const [totalPrice, SetTotalPrice] = useState(0.0); commented out for not caused to many problems can re-add if need the variable
 
     const [foodItem, SetFoodItem] = useState('');
 
@@ -31,8 +31,6 @@ export default function OrderList()
     {
         const newOrderItems = orderItems.filter((item,index) => index !== indexToRemove);
  
-        
-        
 
 
         SetOrder(newOrderItems)
@@ -44,7 +42,7 @@ export default function OrderList()
 
         console.log("newOP: ", newOrderPrices, "   SetOP: ", orderPrice, "|  newOI: ", newOrderItems, " SetOI: ",orderItems);
 
-        SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice))
+        // SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice))
 
     }
 
@@ -53,24 +51,19 @@ export default function OrderList()
     // Adds the item and price to respective lists and totals the order
     function AddToOrder()
     {
-        if (foodItem)//first item dosen't seem to be detected and idk why
-        {
+        
+        
             SetPrice([...orderPrice, 5.25])
 
             SetOrder([...orderItems, foodItem])
 
           
             
-            SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice))//Idk why but doesn't add the first order you put in. 
+          //SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice)) Idk why but doesn't add the first order you put in. 
                                                                         //Ok is a side note but for some reason when this runs it is running on a version of order price without the most recent added price. Cause if you run it again it will add it up properly.
-           
-
 
          console.log(orderPrice, orderItems)
             SetFoodItem("")
-        }
-           
-
 
         
     }
@@ -86,10 +79,10 @@ export default function OrderList()
 
     return(
 
-        <div className="order-page ">
+        <div className="order-page " >
 
-            <div className="order-title">Your Order</div>
-                 
+            <div className="order-title"> Your Order</div>
+                
             <div className="order-input-card">
                 {/*Shows Delivery Options When deliveryOrPickup is false and Pickup options when it is true*/}
                 <button className="deilveryOrPickup-btn" onClick={ChangeOption}> Delivery Or Pickup </button>
@@ -123,15 +116,10 @@ export default function OrderList()
                     </div>
                 )}
 
-                
-                <button className="checkout-btn"> Check Out</button>
-
-            </div>
-
-
-
-                
             
+                <button className="checkout-btn"> Check Out</button>
+            </div>
+        
             <div className="order-list" >
                 
                 
@@ -168,9 +156,10 @@ export default function OrderList()
 
                     </div>
                 )}
+                
                 <button className=" order-btn" > Menu </button>
                 
-          </div>
+            </div>
       
 
 
