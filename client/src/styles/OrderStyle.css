@@ -2,14 +2,15 @@
 {
     display: flex;
     flex-direction: row;
-    background-image: url("E:\downloads\CodingStuff\PizzaPizzaProject\pizzaPizza\client\src\assets\WebBG.png");
+    background-image: url('./assets/WebBG.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 100vh;
     width: 100vw;
-
+    color: black;
 }
+
 
  .order-title
 {
@@ -33,8 +34,9 @@
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s ease;
+    
     color: black;
+
 }
  
 
@@ -99,6 +101,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s ease;
+     color: black;
 
 
     position: absolute;
