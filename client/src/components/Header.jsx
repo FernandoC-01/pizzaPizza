@@ -1,5 +1,5 @@
 import "../styles/Header.css"
-import logo from "../assets/pizzaPizzaLogo.jpg"
+import logo from "../styles/assets/pizzaPizzaLogo.jpg"
 
 const Header = () => {
     return (

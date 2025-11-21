@@ -1,17 +1,14 @@
 import { useState } from "react"
 import "../styles/OrderStyle.css"
+import Header from "./Header"
 
 
 export default function OrderList() 
 {
     const [orderItems,  SetOrder,] = useState([]);
-
     const [orderDescriptions,  SetDescription,] = useState([]);
-
-
     const [orderPrice, SetPrice,] = useState([]);
-     
-    // const [totalPrice, SetTotalPrice] = useState(0.0); commented out for not caused to many problems can re-add if need the variable
+
 
     const [foodItem, SetFoodItem] = useState('');
 
@@ -25,9 +22,7 @@ export default function OrderList()
     const [zip, SetZip] = useState('');
 
 
-    const ChangeOption = () => {
-        SetDelveryOrPickup(!deliveryOrPickup)
-    }
+    const ChangeOption = () => {SetDelveryOrPickup(!deliveryOrPickup)}
 
 
     function DeleteOrderEntry(indexToRemove)
@@ -60,12 +55,9 @@ export default function OrderList()
 
             
             SetDescription([...orderDescriptions,'Peperoni'])
-          
-            
-          //SetTotalPrice(orderPrice.reduce((sum, orderPrice) => sum + orderPrice)) Idk why but doesn't add the first order you put in. 
-                                                                        //Ok is a side note but for some reason when this runs it is running on a version of order price without the most recent added price. Cause if you run it again it will add it up properly.
 
-         console.log(orderPrice, orderItems)
+
+            //Temp used to reset test inputs
             SetFoodItem("")
 
         
@@ -73,7 +65,7 @@ export default function OrderList()
 
     
 
-    //Used for testing inputs for orderItem
+    //Temp Used for testing inputs for orderItem
     function NewItemInputHandeler(event)
     {
         SetFoodItem(event.target.value)
@@ -81,9 +73,11 @@ export default function OrderList()
 
 
     return(
+        
 
         <div className="order-page " >
 
+            {/* <Header></Header>  */}
             <div className="order-title"> Your Order</div>
                     
                 <div className="order-input-card">
@@ -109,15 +103,16 @@ export default function OrderList()
 
                             </div>
                         )}
+
                         <div className="order-userData-position">
                                 <h4>Addtional Info</h4>
                                 <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
                         </div>
                            
 
-                        <button className="checkout-btn"> Check Out</button>
-                    </div>
-        
+                         <button className="checkout-btn"> Check Out</button>
+                </div>
+         
             <div className="order-list" >
                 
                 
