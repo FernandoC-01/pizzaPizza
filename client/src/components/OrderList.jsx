@@ -48,8 +48,8 @@ export default function OrderList()
     }
 
 
-    // Needs to add a way to receive inputs from menu, and needs to remove the input.
-    // Adds the item and price to respective lists and totals the order
+    // Needs to add a way to receive inputs from menu, and needs to remove the input fucntion I have now.
+    // Adds the item a descriptions and price to respective lists and totals the order
     function AddToOrder()
     {
         
@@ -85,43 +85,38 @@ export default function OrderList()
         <div className="order-page " >
 
             <div className="order-title"> Your Order</div>
-                
-            <div className="order-input-card">
-                {/*Shows Delivery Options When deliveryOrPickup is false and Pickup options when it is true*/}
-                <button className="deilveryOrPickup-btn" onClick={ChangeOption}> Delivery Or Pickup </button>
+                    
+                <div className="order-input-card">
+                    {/*Shows Delivery Options When deliveryOrPickup is false and Pickup options when it is true*/}
+                    <button className="deilveryOrPickup-btn" onClick={ChangeOption}> Delivery Or Pickup </button>
 
-                {deliveryOrPickup && ( // Pickup options
-                    <div className="order-inputs" >
-                        <h4>Addtional Info</h4>
-                        <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
-                    </div>
-                )}
+                        {!deliveryOrPickup && (
+                            <div className="order-userData-position"> 
+                                <h4>Street Address</h4>
+                                
+                                <input className="order-inputs" type="text" value = {streetAdress} onChange={(e) => SetStreetAdress(e.target.value)}/>
 
-                {!deliveryOrPickup && ( //Delivery Options
-                    <div className="order-inputs" > 
-                        <h4>Street Address</h4>
+                                <h4>City</h4>
+                                <input className="order-inputs" type="text" value = {city} onChange={(e) => SetCity(e.target.value)}/>
+
+                                <h4>State</h4>
+                                <input className="order-inputs" type="text" value = {state} onChange={(e) => SetState(e.target.value)}/>
+
+                                <h4>ZIP</h4>
+                                <input className="order-inputs" type="text" value = {zip} onChange={(e) => SetZip(e.target.value)}/>
+
                         
-                        <input type="text" value = {streetAdress} onChange={(e) => SetStreetAdress(e.target.value)}/>
 
-                        <h4>City</h4>
-                        <input type="text" value = {city} onChange={(e) => SetCity(e.target.value)}/>
+                            </div>
+                        )}
+                        <div className="order-userData-position">
+                                <h4>Addtional Info</h4>
+                                <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
+                        </div>
+                           
 
-                        <h4>State</h4>
-                        <input type="text" value = {state} onChange={(e) => SetState(e.target.value)}/>
-
-                        <h4>ZIP</h4>
-                        <input type="text" value = {zip} onChange={(e) => SetZip(e.target.value)}/>
-
-                        <h4>Addtional Info</h4>
-                        <input type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>
-
-                        {/* <button className="checkout-btn"> Check Out</button> */}
+                        <button className="checkout-btn"> Check Out</button>
                     </div>
-                )}
-
-            
-                <button className="checkout-btn"> Check Out</button>
-            </div>
         
             <div className="order-list" >
                 
@@ -129,7 +124,7 @@ export default function OrderList()
                 {/* Temp text to allow food items to be added */}
                 <input type="text" value = {foodItem} onChange = {NewItemInputHandeler}/> 
         
-                <p>Value: {foodItem}</p>
+
     
                 {/* Temp button to test lists */}
                 <button className=" order-btn" onClick={AddToOrder} >  Order?</button>        
@@ -138,10 +133,8 @@ export default function OrderList()
                     <div>
                         <ul>
                         {orderItems.map((orderItems, index) => (
-                            <li key={index}> {orderItems}...................${orderPrice[index]}   
-                            
-                                <button onClick={()=> DeleteOrderEntry(index)} > x</button>
-
+                            <li key={index}> {orderItems}...................$<span className="order-price">{orderPrice[index]} </span>    <button onClick={()=> DeleteOrderEntry(index)} > x</button>
+                
                                 <br />
                             
                                   {orderDescriptions[index]}
@@ -158,13 +151,13 @@ export default function OrderList()
                     </div>
                 )}
 
-                {orderItems.length == 0  && (
+                {orderItems.length == 0  && ( //shows default text when there is no items
                     <div>
                         <ul>
-                            Looking empty
-
-
+                            Looking empty!
+                            <br />
                             Fill it with items from our delicious
+                           
                         </ul>
 
                     </div>

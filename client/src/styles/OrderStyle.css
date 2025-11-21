@@ -2,25 +2,27 @@
 {
     display: flex;
     flex-direction: row;
-  background-image: url("E:\downloads\CodingStuff\PizzaPizzaProject\pizzaPizza\client\src\assets\WebBG.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100vw;
+    background-image: url("E:\downloads\CodingStuff\PizzaPizzaProject\pizzaPizza\client\src\assets\WebBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+
 }
 
-.order-title
+ .order-title
 {
   
-    font-size: 5rem;
-    background:  #e6cf90;
-    padding: 2rem;
-    min-width: 50px;
-    height: 140px;
+    font-size: 50px;
+    background:  #9f5802;
+    padding: 30px;
+    min-width: fit-content;
+    max-height: fit-content;
     font-weight: bold;
     position: relative;
-    top: 10px;
+    top: 100px;
+    left: 50px;
        
 }
 
@@ -28,33 +30,49 @@
 {
 
     background: #ffe8ab;
-    font-size: 1.1rem;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s ease;
     color: black;
 }
+ 
 
 .order-input-card
 {
     padding-left: 20px;
-    background:#fdf1d0;
-    height: 550px;
-    min-width: 500px;
-    border-radius: 12px;
-    text-align: center;
-
+    background:#f07c1e;
+    height: 450px;
+    min-width: 750px;
+    padding: 30px;
+    
+    border-radius: 4cap;
 
     position: relative;
-    right: 450px;
-    top: 450px;
+    top: 350px;
+    right: 275px;
+
+
+    text-align: left;
+    font-size: 18px;
+    line-height: 5px;
+
+    
 }
 
 .order-inputs 
 {
+    font-size: 18px;
+    width: 450px;
     position: relative;
-    text-align: left;
-    bottom: 60px;
+
+
+}
+.order-userData-position
+{
+    position:relative;
+    bottom: 70px;
+
 }
 
 .deilveryOrPickup-btn
@@ -76,7 +94,6 @@
 .checkout-btn
 {
     background: #ffe8ab;
-    color: rgb(0, 0, 0);
     border-radius: 4cap;
     font-size: 30px;
     font-weight: bold;
@@ -92,17 +109,32 @@
 
 .order-list
 {
-    background:#fdf1d0;
-    min-height: 700px;
-    min-width: 500px;
-   
+    background:#e15e00;
+    min-height:750px;
+    max-height: fit-content;
+    min-width: 550px;
+    max-width: fit-content;
+    padding: 10px;
+
+    border-radius: 4cap;
 
 
     position: relative;
-    top: 200px;
-    left: -50px;
+    top: 100px;
+    left: 50px;
 
+
+
+    font-size: 18px;
+
+} 
+
+.order-price
+{
+    text-align: left;
+    
 }
+
 
 /* Old syle liked it but I dont think It will work with other pages.
 
