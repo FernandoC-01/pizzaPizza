@@ -1,0 +1,27 @@
+.auth-header {
+  width: 100%;
+  padding: .5rem 0;
+  background-color: white;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-header-content {
+  display: flex; /*items lined up*/
+  align-items: center;
+  justify-content: center;
+  gap: 5rem; /*adjust space between logos and title*/
+}
+
+.header-logo {
+  height: 100px;   /*adjust logo size*/
+  width: auto;
+}
+
+.header-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: black;
+  margin: 0;
+}
