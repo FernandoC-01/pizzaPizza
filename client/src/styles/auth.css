@@ -1,0 +1,99 @@
+.auth-page {
+    min-height: 100vh; /*full height*/
+    display: flex; /*flexbot layout*/
+    justify-content: center; /*horizontal*/
+    align-items: center; /*vertical*/
+}
+
+.auth-card {
+    background: white;
+    padding: 3rem; /*adjust card size*/
+    width: 380px;
+    border-radius: 12px;
+}
+
+.auth-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: black
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /*space between inputs*/
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: black
+}
+
+.form-group input {
+    width: 94%;
+    padding: 0.7rem;
+    border-radius: 8px; /*creates rounded borders*/
+    border: 1px solid #ccc; /*colors borders*/
+    font-size: 1.2rem;
+}
+
+.form-group input:focus {
+    border-color: #b36806;
+    outline: none;
+}
+
+.auth-btn {
+    margin: auto; /*align button in center*/
+    padding: 0.8rem;
+    width: 60%;
+    background: #b36806;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.auth-btn:hover {
+    background: #a35c1a
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    color: black;
+}
+
+.auth-footer a {
+    color: #b36806;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-message {
+    padding: .75rem;
+    border-radius: 8px;
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.auth-message.success {
+    background-color: #acf1bc;
+    color: green;
+}
+
+.auth-message.error {
+    background-color: #ffafb6;
+    color: red;
+}

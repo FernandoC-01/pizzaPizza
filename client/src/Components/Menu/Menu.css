@@ -1,20 +1,29 @@
 .meanContainer{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+
 }
 
 .menu{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.sections {
+    display: flex;
+    justify-content: space-around;
 
 }
 
 .header {
-    background-color: rgb(165, 95, 95);
     width: 100vw;
 }
 
 .foot{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
