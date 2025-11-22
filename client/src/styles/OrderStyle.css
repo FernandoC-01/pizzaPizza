@@ -26,32 +26,72 @@
     
     color: black;
 
+    
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5rem;
+  padding: 5rem;
+  padding-top: 10rem;
+  max-width: 2000px;
+  margin: 0 auto;
+
+
 }
  
+.order-list-card
+{
+    background:#e15e00;
+    min-height: 550px;
+    max-height: fit-content;
+    min-width: 550px;
+    max-width: fit-content;
+    padding: 10px;
+    padding-top: 50px;
+
+    border-radius: 4cap;
+
+    
+
+    position:relative;
+
+
+
+
+    font-size: 18px;
+
+    text-align: center;
+} 
+
 
 .order-input-card
 {
     padding-left: 20px;
     background:#e15e00;
-    height: 450px;
+    height: 550px;
     width: 700px;
     padding: 30px;
     
     border-radius: 4cap;
 
 
-    position: absolute;
-    top: 35%;
-    left: 5%;
+    
+   position: relative;
+    /* top: 500px; */
+    /*left: 25px; */
 
 
 
     text-align: left;
     font-size: 18px;
-    line-height: 5px;
+    line-height: 45px;
 
     
 }
+
+
 
 .order-inputs 
 {
@@ -88,7 +128,7 @@
 {
     background: #ffe8ab;
     border-radius: 4cap;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s ease;
@@ -100,31 +140,6 @@
     right: 20px;
    
 }
-
-.order-list
-{
-    background:#e15e00;
-    min-height:750px;
-    max-height: fit-content;
-    min-width: 550px;
-    max-width: fit-content;
-    padding: 10px;
-
-    border-radius: 4cap;
-
-    
-
-    position: absolute;
-    right: 5%;
-    top: 15%;
-
-
-
-
-    font-size: 18px;
-    margin: 0 auto;
-    text-align: center;
-} 
 
 
 

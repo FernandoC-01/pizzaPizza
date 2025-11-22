@@ -1,6 +1,6 @@
-import { useState } from "react"
-import "../styles/OrderStyle.css"
-import Header from "./Header"
+import { useState } from "react";
+import "../styles/OrderStyle.css";
+import Header from "./Header";
 import { useNavigate } from 'react-router-dom'; // Add this to 'connect' checkout button with payment page
 
 
@@ -125,7 +125,8 @@ export default function OrderList()
 
             <Header></Header>  
             <div className="order-title"> Your Order</div>
-                    
+            
+            <div className="card-container">
                 <div className="order-input-card">
                     {/*Shows Delivery Options When deliveryOrPickup is false and Pickup options when it is true*/}
                     <button className="deilveryOrPickup-btn" onClick={ChangeOption}> Delivery Or Pickup </button>
@@ -145,16 +146,21 @@ export default function OrderList()
                                 <h4>ZIP</h4>
                                  <input className="order-inputs" type="text" value = {zip} onChange={HandleZip}/>
 
-                        
+                                <h4>Addtional Info</h4>
+                                <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
+        
 
                             </div>
                         )}
-
-                        <div className="order-userData-position">
+                              {deliveryOrPickup && (
+                            <div className="order-userData-position"> 
                                 <h4>Addtional Info</h4>
                                 <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
-                        </div>
-                        
+        
+
+                            </div>
+                        )}
+                  
                         {/* <button onClick={handleCheckout} >
                              Check Out 
                              </button> */}
@@ -163,7 +169,7 @@ export default function OrderList()
                              </button>
                 </div>
          
-            <div className="order-list" >
+            <div className="order-list-card" >
                 
                 
                 {/* Temp text to allow food items to be added */}
@@ -208,6 +214,7 @@ export default function OrderList()
                 )}
                 
                 <button className=" order-btn" > Menu </button>
+            </div>
                 
             </div>
       
