@@ -76,7 +76,7 @@ export default function OrderList()
     return(
         
 
-        <div className="order-page " >
+        <div className="body" >
 
             <Header></Header>  
             <div className="order-title"> Your Order</div>
