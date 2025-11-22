@@ -1,5 +1,4 @@
 import './App.css'
-import './Components/Menu/Menu.css'
 import './styles/auth.css'
 import './styles/Header.css'
 import Menu from './Components/Menu/Menu'
