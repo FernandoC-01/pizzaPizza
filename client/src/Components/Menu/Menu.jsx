@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useState, useMemo, useContext, useEffect } from "react";
 import {
     Box,
     Typography,
@@ -11,7 +11,7 @@ import {
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { CartContext } from "./CartContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from '../Header'
 
 // prices 
@@ -70,16 +70,29 @@ function Section({ title, children }) {
 
 export default function Menu() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const previousOrder = location.state?.order
     const { addToCart } = useContext(CartContext);
 
   // Controlled selections (null means unselected)
-    const [size, setSize] = useState(null);
-    const [crust, setCrust] = useState(null);
-    const [sauce, setSauce] = useState(null);
-    const [topping, setTopping] = useState(null);
+    const [size, setSize] = useState(previousOrder?.size ?? null);
+    const [crust, setCrust] = useState(previousOrder?.crust ?? null);
+    const [sauce, setSauce] = useState(previousOrder?.sauce ?? null);
+    const [topping, setTopping] = useState(previousOrder?.topping ?? null);
 
   // quantities for optional items (beverages/sides/dessert)
-    const [quantities, setQuantities] = useState({});
+    const [quantities, setQuantities] = useState(previousOrder?.quantities ?? {});
+
+    useEffect(() => {
+        if (previousOrder) {
+            setSize(previousOrder.size ?? null);
+            setCrust(previousOrder.crust ?? null);
+            setSauce(previousOrder.sauce ?? null);
+            setTopping(previousOrder.topping ?? null);
+            setQuantities(previousOrder.quantities ?? {});
+        }
+    }, [previousOrder]);
+
 
   // helper to toggle single-choice items (clicking already-selected will unselect)
     function toggleChoice(keySetter, currentValue, clickedValue) {
@@ -137,11 +150,20 @@ export default function Menu() {
     }
 
     function handleCheckout() {
-        // push cart + current selections to checkout page
-        // pass both cart and current selection as state
-        handleAddToCart(); // ensure current selection included
-        // navigate to /checkout 
-        navigate("/checkout", { state: { fromMenu: true } });
+        
+        const order = {
+            size,
+            crust,
+            sauce,
+            topping,
+            quantities,
+            subTotal: total,
+            timestamp: Date.now(),
+        };
+
+        handleAddToCart();
+
+        navigate("/checkout", { state: { order, total } });
     }
 
     return (
