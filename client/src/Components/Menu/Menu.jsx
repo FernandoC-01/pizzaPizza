@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useContext } from "react";
 import {
     Box,
-    AppBar,
     Typography,
     IconButton,
     Paper,
