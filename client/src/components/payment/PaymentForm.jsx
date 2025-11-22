@@ -28,7 +28,7 @@ function PaymentForm({ onSubmit, amount = 25.99 }) {
             newErrors.cvv = 'CVV must be 3 digits';
         }
 
-        setError(newErrors);
+        setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
 
     };

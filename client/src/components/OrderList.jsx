@@ -1,10 +1,41 @@
 import { useState } from "react"
 import "../styles/OrderStyle.css"
 import Header from "./Header"
+import { useNavigate } from 'react-router-dom'; // Add this to 'connect' checkout button with payment page
+
+
+
 
 
 export default function OrderList() 
 {
+    const navigate = useNavigate();
+
+        // Prepare cart data in the format payment page expects
+
+    const handleCheckout = () => {
+        // Prepare order data to send to payment page
+        const orderData = {
+            items: orderItems.map((item, idx) => ({
+                name: item,
+                price: orderPrice[idx],
+                description: orderDescriptions[idx],
+            })),
+            total: orderPrice.reduce((sum, price) => sum + price, 0),
+            deliveryOrPickup,
+            address: {
+                street: streetAdress,
+                city,
+                state,
+                zip,
+                addiontalInfo
+            }
+        };
+        // Navigate to the PaymentPage when checkout button is clicked
+        navigate('/payment', { 
+            state: { orderData }
+        });
+    };
 
     const [orderItems,  SetOrder,] = useState([]);
     const [orderDescriptions,  SetDescription,] = useState([]);
@@ -109,9 +140,13 @@ export default function OrderList()
                                 <h4>Addtional Info</h4>
                                 <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
                         </div>
-                           
-
-                         <button className="checkout-btn"> Check Out</button>
+                        
+                        {/* <button onClick={handleCheckout} >
+                             Check Out 
+                             </button> */}
+                         <button className="checkout-btn" onClick={handleCheckout} >
+                             Check Out
+                             </button>
                 </div>
          
             <div className="order-list" >

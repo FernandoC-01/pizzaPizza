@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import{useNavigate, useLocation} from 'react-router-dom';
 import PaymentForm from '../components/payment/PaymentForm';
+import PaymentError from '../components/payment/PaymentError';
+import PaymentSuccess from '../components/payment/PaymentSuccess';
 import '../styles/payment.css';
 
 function PaymentPage() {
@@ -18,12 +20,12 @@ function PaymentPage() {
     //STATE: store error message after failed payment
     const [errorMessage, setErrorMessage] = useState(' ');
 
-    //MOCK DATA: order details (replace with real data later)
-    const orderData = {
+    // Use order data from location.state if available, else fallback to mock
+    const orderData = location.state?.orderData || location.state?.cartData || {
         items: [
             { name: 'Pepperoni Pizza(Large)', price:15.99, quantity: 1 },
         ],
-        subtoal: 15.99,
+        subtotal: 15.99,
         tax: 1.28,
         total: 17.27
     };
@@ -35,11 +37,25 @@ function PaymentPage() {
         //Change status to show loading spinner
         setPaymentStatus('processing');
 
-        //Simulate API call with setTimeout(replace later)
+        //Simulate API call with setTimeout(replace later.. maybe)
         setTimeout(() => {
+            // Simulate error if card number is '0000 0000 0000 0000'
+            if (paymentData.cardNumber.replace(/\s/g, '') === '0000000000000000') {
+                setErrorMessage('Payment failed: Invalid card number.');
+                setPaymentStatus('error');
+                return;
+            }
             //Simulate success
-            setTransactionId('TXN-' + Math.random().toString(36).substr(2, 9));
+            const txnId = 'TXN-' + Math.random().toString(36).substr(2, 9);
+            setTransactionId(txnId);
             setPaymentStatus('success');
+            // Redirect to order confirmation page after success, pass order and transaction
+            navigate('/order-confirmation', {
+                state: {
+                    orderData,
+                    transactionId: txnId
+                }
+            });
         }, 2000);
     };
 
@@ -49,7 +65,13 @@ function PaymentPage() {
         setErrorMessage(' ');
     };
     return (
-        <div className="payment-page">
+        <div className="payment-page" style={{
+            minHeight: '100vh',
+            width: '100%',
+            padding: '40px 20px',
+            boxSizing: 'border-box',
+        }}>
+            
            <h1>Complete Your Payment</h1>
            {/* Render different components based on status */}
 
@@ -65,21 +87,11 @@ function PaymentPage() {
            )}
 
            {paymentStatus === 'success' && (
-            <div className="success">
-                <h2>Payment Successful!</h2>
-                <p>Transaction ID: {transactionId}</p>
-                <p>Amount Charged: $XX.XX</p>
-                <p>Thank you for your purchase!</p>
-
-            </div>
+            <PaymentSuccess transactionId={transactionId} amount={orderData.total?.toFixed(2) || 'XX.XX'} />
            )}
 
            {paymentStatus === 'error' && (
-            <div className="error">
-                <h2>⚠Payment Failed</h2>
-                <p>{errorMessage}</p>
-                <button onClick={handleRetry}>Try Again</button>
-            </div>
+            <PaymentError message={errorMessage} onRetry={handleRetry} />
            )}
         </div>
     );

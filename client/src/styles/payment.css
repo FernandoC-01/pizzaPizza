@@ -2,13 +2,15 @@
 
 /* General Page Styles Centered*/
 .payment-page{
-    max-width: 600px;
-    margin: 50px auto; /* Center the form on the page */
+    max-width: 1200px; /*Increased max width for better layout */
+    margin: 0 auto; /* Center the form on the page */
     font-family: 'Arial', sans-serif;
-    min-height: calc(100vh - 100px); /* Full height minus some margin */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    min-height: 100vh; /* Full height minus some margin */
+    padding: 40px 20px; /* Increased padding for better spacing */
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect total width */
+
+
 }
 
 .payment-page h1{
@@ -20,11 +22,12 @@
 /* Payment Form Styles */
 .payment-form{
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 15 px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 500px;
+    margin: 0 auto;
 }
 
 .form-group{
@@ -178,11 +181,14 @@
 
 /* Order Summary Styles */
 .order-summary{
-    margin-bottom: 30px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border: 2px solid #B8651B
+    background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .order-summary h3{
