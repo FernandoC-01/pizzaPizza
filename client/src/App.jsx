@@ -3,7 +3,17 @@ import { Routes, Route } from "react-router-dom"
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
 
-//Fix navigation routes. Homepage should be before login/signup.
+//Add default logins
+const defaultUsers = [
+  { email: "test@example.com", phone: "(123)-456-7890", password: "password123" },
+  { email: "user67@pizza.com", phone: "(777)-333-7777", password: "ILovePizza9"}
+]
+
+//set users to default logins so 
+if (!localStorage.getItem("users")) {
+  localStorage.setItem("users", JSON.stringify(defaultUsers))
+}
+
 function App() {
 
   return (

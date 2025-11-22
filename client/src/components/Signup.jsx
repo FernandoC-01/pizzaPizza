@@ -45,7 +45,7 @@ const Signup = () => {
 
         //Navigate to login after successful signup (after 1.5 sec)
         setTimeout(() => {
-            navigate("/")
+            navigate("/login")
         }, 1500)
     }
 
