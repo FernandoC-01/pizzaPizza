@@ -7,7 +7,7 @@ function OrderConfirmation() {
   const navigate = useNavigate();
   
   // Get data passed from PaymentPage
-  const { orderData, transactionId } = location.state || {};
+  const { orderData, transactionId,  } = location.state || {};
   
   // If no data (user navigated directly), redirect home
   if (!orderData) {
@@ -61,7 +61,20 @@ function OrderConfirmation() {
             <span>${orderData.tax.toFixed(2)}</span>
           </div>
           <div className="total-line grand-total">
+
             <span>Total Paid:</span>
+
+             {/* {!deliveryOrPickup && (
+               <span>Total Paid:</span>
+             )}
+
+              {deliveryOrPickup && (
+               <span>Total amount:</span>
+             )}
+           */}
+
+
+
             <span>${orderData.total.toFixed(2)}</span>
           </div>
         </div>

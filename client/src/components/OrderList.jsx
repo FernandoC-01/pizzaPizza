@@ -1,27 +1,36 @@
-import { useState } from "react";
+
+import React, { useContext, useState } from "react";
 import "../styles/OrderStyle.css";
 import Header from "./Header";
-import { useNavigate } from 'react-router-dom'; // Add this to 'connect' checkout button with payment page
+import { useNavigate, useLocation } from 'react-router-dom';
+import { CartContext } from "./Menu/CartContext";
 
 
 
 
-
-export default function OrderList() 
-{
+export default function OrderList() {
     const navigate = useNavigate();
+    const { cart } = useContext(CartContext);
 
-        // Prepare cart data in the format payment page expects
+    const location = useLocation();
+    const {order,total} = location.state || {order: [], total: 0};
+
+    const [deliveryOrPickup, SetDelveryOrPickup] = useState(false);
+    const [addiontalInfo, SetAdditionalInfo] = useState('');
+    const [streetAdress, SetStreetAdress] = useState('');
+    const [city, SetCity] = useState('');
+    const [state, SetState] = useState('');
+    const [zip, SetZip] = useState('');
+
+    const ChangeOption = () => { SetDelveryOrPickup(!deliveryOrPickup); };
+
+    const ChangeDelivery = () => { SetDelveryOrPickup(false); };
+    const ChangePickup = () => { SetDelveryOrPickup(true); };
 
     const handleCheckout = () => {
-        // Prepare order data to send to payment page
         const orderData = {
-            items: orderItems.map((item, idx) => ({
-                name: item,
-                price: orderPrice[idx],
-                description: orderDescriptions[idx],
-            })),
-            total: orderPrice.reduce((sum, price) => sum + price, 0),
+            items: cart,
+            total: cart.reduce((sum, item) => sum + (item.subTotal || 0), 0),
             deliveryOrPickup,
             address: {
                 street: streetAdress,
@@ -31,30 +40,10 @@ export default function OrderList()
                 addiontalInfo
             }
         };
-        // Navigate to the PaymentPage when checkout button is clicked
-        navigate('/payment', { 
-            state: { orderData }
-        });
+        navigate('/payment', { state: { orderData } });
     };
 
-    const [orderItems,  SetOrder,] = useState([]);
-    const [orderDescriptions,  SetDescription,] = useState([]);
-    const [orderPrice, SetPrice,] = useState([]);
 
-
-    const [foodItem, SetFoodItem] = useState('');
-
-    const [deliveryOrPickup, SetDelveryOrPickup] = useState(false);
-
-
-    const [addiontalInfo, SetAdditionalInfo] = useState('');
-    const [streetAdress, SetStreetAdress] = useState('');
-    const [city, SetCity] = useState('');
-    const [state, SetState] = useState('');
-    const [zip, SetZip] = useState('');
-
-
-    const ChangeOption = () => {SetDelveryOrPickup(!deliveryOrPickup)}
 
 
     function DeleteOrderEntry(indexToRemove)
@@ -96,12 +85,10 @@ export default function OrderList()
     }
 
 
-      const HandleZip = (e) => {
-            const inputValue = e.target.value;
-            // Regular expression to allow only digits (0-9)
-            const numericRegex = /^[0-9]*$/; 
-
-            if (inputValue === '' || numericRegex.test(inputValue)) {
+    const HandleZip = (e) => {
+        const inputValue = e.target.value;
+        const numericRegex = /^[0-9]*$/;
+        if (inputValue === '' || numericRegex.test(inputValue)) {
             SetZip(inputValue);
             }
             else{
@@ -125,12 +112,11 @@ export default function OrderList()
 
             <Header></Header>  
             <div className="order-title"> Your Order</div>
-            
             <div className="card-container">
                 <div className="order-input-card">
                     {/*Shows Delivery Options When deliveryOrPickup is false and Pickup options when it is true*/}
-                    <button className="deilveryOrPickup-btn" onClick={ChangeOption}> Delivery Or Pickup </button>
-
+                    <button className="deilveryOrPickup-btn" onClick={ChangeDelivery}> Delivery </button>
+                    <button className="deilveryOrPickup-btn" onClick={ChangePickup}>  Pickup </button>
                         {!deliveryOrPickup && (
                             <div className="order-userData-position"> 
                                 <h4>Street Address</h4>
@@ -160,73 +146,46 @@ export default function OrderList()
 
                             </div>
                         )}
-                  
-                        {/* <button onClick={handleCheckout} >
-                             Check Out 
-                             </button> */}
+
+                </div>
+
+                
                          <button className="checkout-btn" onClick={handleCheckout} >
                              Check Out
                              </button>
-                </div>
-         
-            <div className="order-list-card" >
-                
-                
-                {/* Temp text to allow food items to be added */}
-                <input type="text" value = {foodItem} onChange = {NewItemInputHandeler}/> 
-        
-
-    
-                {/* Temp button to test lists */}
-                <button className=" order-btn" onClick={AddToOrder} >  Order?</button>        
-
-                {orderItems.length > 0 && (//Shows the list of items in order
-                    <div>
-                        <ul>
-                        {orderItems.map((orderItems, index) => (
-                            <li key={index}> {orderItems}...................${orderPrice[index]}  <button onClick={()=> DeleteOrderEntry(index)} > x</button>
-                
+                <div className="order-list-card">
+                    {cart.length > 0 ? (
+                        <div>
+                            <ul>
+                                {cart.map((item, index) => (                                    
+                                    <li key={index}>
+                                        {item.timestamp ? `Order #${item.timestamp}` : 'Order'} - ${item.subTotal || 0}
+                                        <br />
+                                        {item.selections && Object.entries(item.selections).map(([key, value]) => value && (
+                                            <span key={key}>{key}: {value} </span>
+                                        ))}
+                                        {item.quantities && Object.entries(item.quantities).map(([key, value]) => (
+                                            <span key={key}>{key}: {value} </span>
+                                        ))}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div>
+                                Total Price: {cart.reduce((sum, item) => sum + (item.subTotal || 0), 0)}
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <ul>
+                                Looking empty!
                                 <br />
-                            
-                                  {orderDescriptions[index]}
-                                
-                            
-                            </li>
-                        ))}
-                
-                        Total Price:  {orderPrice.reduce((sum, orderPrice) => sum + orderPrice)} 
-                      
-                    
-                        </ul>
-                    </div>
-                )}
-
-                {orderItems.length == 0  && ( //shows default text when there is no items
-                    <div>
-                        <ul>
-                            Looking empty!
-                            <br />
-                            Fill it with items from our delicious
-                           
-                        </ul>
-
-                    </div>
-                )}
-                
-                <button className=" order-btn" > Menu </button>
+                                Fill it with items from our delicious menu!
+                            </ul>
+                        </div>
+                    )}
+                    <button className="order-btn" onClick={()=> navigate('/menu')} > Menu </button>
+                </div>
             </div>
-                
-            </div>
-      
-
-
-            
- 
         </div>
-
-
-    )
-
-
-
+    );
 }

@@ -137,11 +137,24 @@ export default function Menu() {
     }
 
     function handleCheckout() {
+        const order = 
+        {
+            size,
+            crust,
+            sauce,
+            topping,
+            quantities,//contains beverages, dessert, sides
+            subTotal: total,
+            timestamp: Date.now(),
+
+
+        }
+
         // push cart + current selections to checkout page
         // pass both cart and current selection as state
         handleAddToCart(); // ensure current selection included
         // navigate to /checkout 
-        navigate("/checkout", { state: { fromMenu: true } });
+        navigate("/cart" , { state:{order,total}  });
     }
 
     return (
@@ -303,7 +316,7 @@ export default function Menu() {
             sx={{ backgroundColor: "#f7d1a3", color: "#4a2d1c" }}
             onClick={handleCheckout}
             >
-            Checkout
+            View Cart
             </Button>
         </Box>
         </Box>

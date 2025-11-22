@@ -3,40 +3,33 @@ import './App.css'
 import './styles/auth.css'
 import './styles/Header.css'
 import Menu from './Components/Menu/Menu'
+import { CartProvider } from './components/Menu/CartContext';
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
-import PaymentPage from './pages/PaymentPage';
+import PaymentPage from './components/PaymentPage.jsx';
 import OrderConfirmation from './pages/OrderConfirmation';
 import OrderList from './components/OrderList';
 
 
 function App() {
   return (
-    <Router>
-      <div style={{minHeight: '100vh', backgroundColor: '#B8651B'}}>
-        <nav style={{ padding: '20px', background: '#8B4513', color: 'white' }}> 
-          <Link to="/" style={{ marginRight: '20px', color: 'white', textDecoration: 'none' }}>Home</Link>
-          <Link to="/menu" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Menu</Link>
-          <Link to="/cart" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Shopping Cart</Link>
-          <Link to="/payment" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Payment</Link>
-         
-        </nav>
-        {/*Route Definitions*/}
-        <Routes>
-          <Route path="/" element={<Home />} />  
-          <Route path="/Login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/cart" element={<OrderList />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/order-confirmation" element={<OrderConfirmation /> } />
-        
-        </Routes>
-      </div>  
-
-    </Router>
+    <CartProvider>
+      <Router>
+        <div style={{minHeight: '100vh', backgroundColor: '#B8651B',}}>
+          {/*Route Definitions*/}
+          <Routes>
+            <Route path="/" element={<Home />} />  
+            <Route path="/Login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/cart" element={<OrderList />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/order-confirmation" element={<OrderConfirmation /> } />
+          </Routes>
+        </div>  
+      </Router>
+    </CartProvider>
   );
-
 }
 
 function Home() {
