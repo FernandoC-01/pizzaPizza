@@ -13,7 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
@@ -26,8 +25,6 @@ html, body, #root {
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-=======
->>>>>>> Chason'sBranch
 a {
   font-weight: 500;
   color: #646cff;
@@ -39,19 +36,12 @@ a:hover {
 
 body {
   margin: 0;
-<<<<<<< HEAD
   min-width: 320px;
   min-height: 100vh;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-=======
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
->>>>>>> Chason'sBranch
 }
 
 h1 {

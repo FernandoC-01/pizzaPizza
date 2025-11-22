@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
@@ -99,30 +98,4 @@ function Home() {
 
 
 
-=======
-
-import './App.css'
-
-import OrderList from './components/OrderList'
-
-
-function App() {
-
-  
-
-
-  return (
-
-      <div>
-          <OrderList/>
-      </div>
-      
-
-
-    
- 
-  )
-}
-
->>>>>>> Chason'sBranch
 export default App
