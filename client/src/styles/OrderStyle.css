@@ -1,0 +1,264 @@
+.order-page 
+{
+    /* display: flex;  messes up with header but was on nados when I got it.*/
+
+
+
+    background-image: url('./assets/webBG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    color: black;
+
+ 
+    justify-content: center;
+    align-items: center; 
+
+} 
+
+
+ .order-title
+{
+  
+    font-size: 50px;
+    background:  #af440f97;
+    padding: 40px;
+    width: fit-content;
+    max-height: fit-content;
+    font-weight: bold;
+
+    position: relative;
+    top: 5%;
+    left: 5%;
+       
+}
+
+.order-btn
+{
+
+    background: #ffe8ab;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    color: black;
+
+}
+ 
+
+.order-input-card
+{
+    padding-left: 20px;
+    background:#e15e00;
+    height: 450px;
+    width: 700px;
+    padding: 30px;
+    
+    border-radius: 4cap;
+
+
+    position: absolute;
+    top: 35%;
+    left: 5%;
+
+
+
+    text-align: left;
+    font-size: 18px;
+    line-height: 5px;
+
+    
+}
+
+.order-inputs 
+{
+    font-size: 18px;
+    width: 450px;
+    position: relative;
+
+
+}
+.order-userData-position
+{
+    position:relative;
+    bottom: 70px;
+
+}
+
+.deilveryOrPickup-btn
+{
+    background: #ffe8ab;
+    color: rgb(0, 0, 0);
+    border-radius: 4cap;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+
+    position:relative;
+    top: -90px;
+    
+}
+
+.checkout-btn
+{
+    background: #ffe8ab;
+    border-radius: 4cap;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+     color: black;
+
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+   
+}
+
+.order-list
+{
+    background:#e15e00;
+    min-height:750px;
+    max-height: fit-content;
+    min-width: 550px;
+    max-width: fit-content;
+    padding: 10px;
+
+    border-radius: 4cap;
+
+    position: absolute;
+    right: 5%;
+    top: 15%;
+
+
+
+
+    font-size: 18px;
+
+} 
+
+
+
+/* Old syle liked it but I dont think It will work with other pages.
+
+
+/* .order-page 
+{
+    color: black;
+    min-height: 1080px; 
+    min-width: 1920px;
+   justify-content: horizontal; 
+    display: flex; 
+    align-items: center; 
+    background: #b36806 
+   
+    
+} */
+
+/* .order-title
+{
+  
+    font-size: 5rem;
+    background:  #e6cf90;
+    padding: 2rem;
+    width: 30rem;
+
+    position: relative;
+    bottom: 400px;
+       
+} */
+
+/* .order-btn
+{
+    padding: 0.8rem;
+    background: #ffe8ab;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: black;
+}
+
+.order-input-card
+{
+    
+    background:#fdf1d0;
+    padding: 2rem;
+    height: 500px;
+    width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: left;
+
+
+    position: relative;
+    right: 450px;
+    top: 230px;
+}
+
+.order-inputs
+{
+    position: relative;
+    bottom: 60px;
+}
+
+.deilveryOrPickup-btn
+{
+    padding: 15px;
+    background: #ffe8ab;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4cap;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+
+    position: relative;
+    top: -140px;
+}
+
+.checkout-btn
+{
+    padding: 15px;
+    background: #ffe8ab;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4cap;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+   
+}
+
+.order-list
+{
+    background:#fdf1d0;
+    padding: 2rem;
+    height: 775px;
+    width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    position: relative;
+    top: 200;
+    left: -50px;
+
+} */
+
+
+
