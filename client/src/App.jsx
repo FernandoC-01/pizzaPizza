@@ -1,4 +1,8 @@
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
+import './App.css'
+import './styles/auth.css'
+import './styles/Header.css'
+import Menu from './Components/Menu/Menu'
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
 import PaymentPage from './pages/PaymentPage';
@@ -20,6 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />  
           <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/m" element={<Menu />} />
           <Route path="/cart" element={<OrderList />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation /> } />
@@ -29,6 +34,7 @@ function App() {
 
     </Router>
   );
+
 }
 
 function Home() {

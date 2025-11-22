@@ -3,7 +3,6 @@
     display: flex; /*flexbot layout*/
     justify-content: center; /*horizontal*/
     align-items: center; /*vertical*/
-    background: #b36806 /*orange*/
 }
 
 .auth-card {
