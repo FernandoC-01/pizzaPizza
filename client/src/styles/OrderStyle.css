@@ -1,22 +1,3 @@
-.order-page 
-{
-    /* display: flex;  messes up with header but was on nados when I got it.*/
-
-
-
-    background-image: url('./assets/webBG.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
-    color: black;
-
- 
-    justify-content: center;
-    align-items: center; 
-
-} 
 
 
  .order-title
@@ -131,6 +112,8 @@
 
     border-radius: 4cap;
 
+    
+
     position: absolute;
     right: 5%;
     top: 15%;
@@ -139,126 +122,9 @@
 
 
     font-size: 18px;
-
+    margin: 0 auto;
+    text-align: center;
 } 
-
-
-
-/* Old syle liked it but I dont think It will work with other pages.
-
-
-/* .order-page 
-{
-    color: black;
-    min-height: 1080px; 
-    min-width: 1920px;
-   justify-content: horizontal; 
-    display: flex; 
-    align-items: center; 
-    background: #b36806 
-   
-    
-} */
-
-/* .order-title
-{
-  
-    font-size: 5rem;
-    background:  #e6cf90;
-    padding: 2rem;
-    width: 30rem;
-
-    position: relative;
-    bottom: 400px;
-       
-} */
-
-/* .order-btn
-{
-    padding: 0.8rem;
-    background: #ffe8ab;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
-    color: black;
-}
-
-.order-input-card
-{
-    
-    background:#fdf1d0;
-    padding: 2rem;
-    height: 500px;
-    width: 800px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: left;
-
-
-    position: relative;
-    right: 450px;
-    top: 230px;
-}
-
-.order-inputs
-{
-    position: relative;
-    bottom: 60px;
-}
-
-.deilveryOrPickup-btn
-{
-    padding: 15px;
-    background: #ffe8ab;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 4cap;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
-
-
-    position: relative;
-    top: -140px;
-}
-
-.checkout-btn
-{
-    padding: 15px;
-    background: #ffe8ab;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 4cap;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s ease;
-
-
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-   
-}
-
-.order-list
-{
-    background:#fdf1d0;
-    padding: 2rem;
-    height: 775px;
-    width: 700px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-    position: relative;
-    top: 200;
-    left: -50px;
-
-} */
 
 
 

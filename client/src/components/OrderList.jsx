@@ -95,6 +95,20 @@ export default function OrderList()
         
     }
 
+
+      const HandleZip = (e) => {
+            const inputValue = e.target.value;
+            // Regular expression to allow only digits (0-9)
+            const numericRegex = /^[0-9]*$/; 
+
+            if (inputValue === '' || numericRegex.test(inputValue)) {
+            SetZip(inputValue);
+            }
+            else{
+                alert("ZIP only accepts numbers")
+            }
+        };
+
     
 
     //Temp Used for testing inputs for orderItem
@@ -107,7 +121,7 @@ export default function OrderList()
     return(
         
 
-        <div className="order-page " >
+        <div className="body" >
 
             <Header></Header>  
             <div className="order-title"> Your Order</div>
@@ -129,7 +143,7 @@ export default function OrderList()
                                 <input className="order-inputs" type="text" value = {state} onChange={(e) => SetState(e.target.value)}/>
 
                                 <h4>ZIP</h4>
-                                <input className="order-inputs" type="text" value = {zip} onChange={(e) => SetZip(e.target.value)}/>
+                                 <input className="order-inputs" type="text" value = {zip} onChange={HandleZip}/>
 
                         
 
