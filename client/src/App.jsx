@@ -1,8 +1,11 @@
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
+import Login from "./components/Login.jsx"
+import Signup from "./components/Signup.jsx"
 import PaymentPage from './pages/PaymentPage';
 import OrderConfirmation from './pages/OrderConfirmation';
 import './App.css'
 import OrderList from './components/OrderList';
+
 
 function App() {
   return (
@@ -14,10 +17,13 @@ function App() {
         </nav>
         {/*Route Definitions*/}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />  
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/cart" element={<OrderList />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation /> } />
+        
         </Routes>
       </div>  
 
