@@ -1,0 +1,146 @@
+.pizza-app-root {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* top bar  */
+.top-bar {
+  width: 900px;
+  height: 90px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 10px;
+}
+
+/* left Logo box */
+.logo-box {
+  width: 70px;
+  height: 70px;
+  background-color: #f4d4a3;
+  border: 2px ridge #caa36b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+/* banner (center) */
+.banner-box {
+  flex: 1;
+  margin: 0 40px;
+  height: 60px;
+  background-color: white;
+  border: 2px ridge #caa36b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-box h1 {
+  margin: 0;
+  color: orange;
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* cart button (right) */
+.cart-button {
+  width: 80px;
+  height: 50px;
+  margin-right: 20px;
+  background-color: #ff8c3a;
+  border: 2px ridge #caa36b;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/*  main area  */
+.main-area {
+  width: 900px;
+  height: 460px;
+  background-color: #f4d4a3;
+  display: flex;
+  padding-top: 20px;
+}
+
+/* left side */
+.left-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 60px;
+}
+
+.menu-sign {
+  width: 220px;
+  height: 80px;
+  background-color: #f09b57;
+  border: 3px ridge #c87530;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.menu-sign span {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* info note */
+.info-card {
+  width: 230px;
+  height: 210px;
+  background-color: #ffffff;
+  border: 3px ridge #caa36b;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+.info-text {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+/* right side */
+.right-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 60px;
+  gap: 20px;
+}
+
+.sign-card {
+  width: 220px;
+  height: 80px;
+  background-color: #f09b57;
+  border: 3px ridge #c87530;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-card span {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
