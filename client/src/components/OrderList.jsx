@@ -5,6 +5,7 @@ import Header from "./Header"
 
 export default function OrderList() 
 {
+
     const [orderItems,  SetOrder,] = useState([]);
     const [orderDescriptions,  SetDescription,] = useState([]);
     const [orderPrice, SetPrice,] = useState([]);
@@ -44,7 +45,7 @@ export default function OrderList()
 
 
     // Needs to add a way to receive inputs from menu, and needs to remove the input fucntion I have now.
-    // Adds the item a descriptions and price to respective lists and totals the order
+    // Adds the item a descriptions and price to respective lists 
     function AddToOrder()
     {
         
@@ -77,7 +78,7 @@ export default function OrderList()
 
         <div className="order-page " >
 
-            {/* <Header></Header>  */}
+            <Header></Header>  
             <div className="order-title"> Your Order</div>
                     
                 <div className="order-input-card">
@@ -128,7 +129,7 @@ export default function OrderList()
                     <div>
                         <ul>
                         {orderItems.map((orderItems, index) => (
-                            <li key={index}> {orderItems}...................$<span className="order-price">{orderPrice[index]} </span>    <button onClick={()=> DeleteOrderEntry(index)} > x</button>
+                            <li key={index}> {orderItems}...................${orderPrice[index]}  <button onClick={()=> DeleteOrderEntry(index)} > x</button>
                 
                                 <br />
                             
@@ -139,7 +140,6 @@ export default function OrderList()
                         ))}
                 
                         Total Price:  {orderPrice.reduce((sum, orderPrice) => sum + orderPrice)} 
-                        {console.log(orderDescriptions)}
                       
                     
                         </ul>
