@@ -18,7 +18,7 @@ function App() {
         {/*Route Definitions*/}
         <Routes>
           <Route path="/" element={<Home />} />  
-          <Route path="/" element={<Login />} />
+          <Route path="/Login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/cart" element={<OrderList />} />
           <Route path="/payment" element={<PaymentPage />} />
