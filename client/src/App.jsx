@@ -1,5 +1,8 @@
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import PaymentPage from './pages/PaymentPage';
+import OrderConfirmation from './pages/OrderConfirmation';
+import './App.css'
+import OrderList from './components/OrderList';
 
 function App() {
   return (
@@ -12,9 +15,12 @@ function App() {
         {/*Route Definitions*/}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<OrderList />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/order-summary" element={<OrderConfirmation /> } />
         </Routes>
-      </div>
+      </div>  
+
     </Router>
   );
 }
@@ -28,27 +34,6 @@ function Home() {
   );
 }
 
-import './App.css'
 
-import OrderList from './components/OrderList'
-
-
-function App() {
-
-  
-
-
-  return (
-
-      <div>
-          <OrderList/>
-      </div>
-      
-
-
-    
- 
-  )
-}
 
 export default App
