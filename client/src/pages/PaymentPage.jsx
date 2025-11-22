@@ -1,9 +1,13 @@
 //Payment Page.jsx
 import React, {useState} from 'react';
+import{useNavigate, useLocation} from 'react-router-dom';
 import PaymentForm from '../components/payment/PaymentForm';
 import '../styles/payment.css';
 
 function PaymentPage() {
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     //STATE: store payment status 
     const [paymentStatus, setPaymentStatus] = useState('form');
