@@ -82,7 +82,7 @@ const Login = () => {
                 </p>
 
                 <p className="auth-footer">
-                    <Link to="/home">Return to Homepage</Link>
+                    <Link to="/">Return to Homepage</Link>
                 </p>
 
                 {message && (

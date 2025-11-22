@@ -1,4 +1,4 @@
-import PizzaHome from "./PizzaHome.jsx";
+import PizzaHome from "./components/PizzaHome.jsx";
 import { Routes, Route } from "react-router-dom"
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
@@ -7,10 +7,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/home" element={<PizzaHome />} />
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<PizzaHome />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      
+
     </Routes>
     
   )
