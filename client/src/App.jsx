@@ -3,6 +3,7 @@ import './App.css'
 import './styles/auth.css'
 import './styles/Header.css'
 import Menu from './components/Menu/Menu'
+import PizzaHome from "./components/PizzaHome.jsx";
 import { CartProvider } from './components/Menu/CartContext';
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
@@ -18,7 +19,8 @@ function App() {
         <div style={{minHeight: '100vh', backgroundColor: '#B8651B',}}>
           {/*Route Definitions*/}
           <Routes>
-            <Route path="/" element={<Home />} />  
+              <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} />   */}
             <Route path="/Login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/menu" element={<Menu />} />
@@ -30,72 +32,84 @@ function App() {
       </Router>
     </CartProvider>
   );
+
+// Add default logins
+const defaultUsers = [
+  { email: "test@example.com", phone: "(123)-456-7890", password: "password123" },
+  { email: "user67@pizza.com", phone: "(777)-333-7777", password: "ILovepizza!" }
+];
+
+// Set users to default logins so they can log in
+if (!localStorage.getItem("users")) {
+  localStorage.setItem("users", JSON.stringify(defaultUsers));
 }
 
-function Home() {
-  const navigate = useNavigate();
-  return (
-    <div style={{ 
-      padding: '60px 20px', 
-      textAlign: 'center', 
-      color: 'white',
-      minHeight: 'calc(100vh - 60px)' 
-    }}>
-      <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>
-        Welcome to Mom's and Pop's Pizzeria!
-      </h1>
-      <p style={{ fontSize: '20px', marginBottom: '40px' }}>
-        Click "Cart" to see the shopping cart or "Payment" to test the payment page
-      </p>
-      
-      <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-        <button 
-          onClick={() => navigate('/cart')}
-          style={{
-            padding: '15px 30px',
-            fontSize: '18px',
-            backgroundColor: '#8B4513',
-            color: 'white',
-            border: '2px solid #6B3410',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            fontWeight: 'bold'
-          }}
-        >
-          Go to Cart →
-        </button>
-        
-        <button 
-          onClick={() => navigate('/payment', {
-            state: {
-              cartData: {
-                items: [
-                  { name: 'Pepperoni Pizza (Large)', price: 15.99, quantity: 1 },
-                  { name: 'Garlic Knots', price: 5.99, quantity: 2 },
-                ],
-                subtotal: 27.97,
-                tax: 2.24,
-                total: 30.21
-              }
-            }
-          })}
-          style={{
-            padding: '15px 30px',
-            fontSize: '18px',
-            backgroundColor: '#28a745',
-            color: 'white',
-            border: '2px solid #1e7e34',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            fontWeight: 'bold'
-          }}
-        >
-          Test Payment →
-        </button>
-      </div>
-    </div>
-  );
 }
+
+// function Home() {
+//   const navigate = useNavigate();
+//   return (
+//     <div style={{ 
+//       padding: '60px 20px', 
+//       textAlign: 'center', 
+//       color: 'white',
+//       minHeight: 'calc(100vh - 60px)' 
+//     }}>
+//       <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>
+//         Welcome to Mom's and Pop's Pizzeria!
+//       </h1>
+//       <p style={{ fontSize: '20px', marginBottom: '40px' }}>
+//         Click "Cart" to see the shopping cart or "Payment" to test the payment page
+//       </p>
+      
+//       <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+//         <button 
+//           onClick={() => navigate('/cart')}
+//           style={{
+//             padding: '15px 30px',
+//             fontSize: '18px',
+//             backgroundColor: '#8B4513',
+//             color: 'white',
+//             border: '2px solid #6B3410',
+//             borderRadius: '5px',
+//             cursor: 'pointer',
+//             fontWeight: 'bold'
+//           }}
+//         >
+//           Go to Cart →
+//         </button>
+        
+//         <button 
+//           onClick={() => navigate('/payment', {
+//             state: {
+//               cartData: {
+//                 items: [
+//                   { name: 'Pepperoni Pizza (Large)', price: 15.99, quantity: 1 },
+//                   { name: 'Garlic Knots', price: 5.99, quantity: 2 },
+//                 ],
+//                 subtotal: 27.97,
+//                 tax: 2.24,
+//                 total: 30.21
+//               }
+//             }
+//           })}
+//           style={{
+//             padding: '15px 30px',
+//             fontSize: '18px',
+//             backgroundColor: '#28a745',
+//             color: 'white',
+//             border: '2px solid #1e7e34',
+//             borderRadius: '5px',
+//             cursor: 'pointer',
+//             fontWeight: 'bold'
+//           }}
+//         >
+//           Test Payment →
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
 
 
 

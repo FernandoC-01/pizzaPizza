@@ -45,7 +45,7 @@ const Signup = () => {
 
         //Navigate to login after successful signup (after 1.5 sec)
         setTimeout(() => {
-            navigate("/")
+            navigate("/login")
         }, 1500)
     }
 
@@ -114,11 +114,11 @@ const Signup = () => {
                 </form>
 
                 <p className="auth-footer">
-                    Already have an account? <Link to="/">Login</Link>
+                    Already have an account? <Link to="/login">Login</Link>
                 </p>
 
                 <p className="auth-footer">
-                    <Link to="/home">Return to Homepage</Link>
+                    <Link to="/">Return to Homepage</Link>
                 </p>
 
                 {message &&(
