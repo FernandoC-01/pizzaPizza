@@ -2,7 +2,7 @@ import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-r
 import './App.css'
 import './styles/auth.css'
 import './styles/Header.css'
-import Menu from './Components/Menu/Menu'
+import Menu from './components/Menu/Menu'
 import { CartProvider } from './components/Menu/CartContext';
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
