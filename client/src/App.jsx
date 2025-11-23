@@ -19,7 +19,7 @@ function App() {
         <div style={{minHeight: '100vh', backgroundColor: '#B8651B',}}>
           {/*Route Definitions*/}
           <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<PizzaHome />} />
             {/* <Route path="/" element={<Home />} />   */}
             <Route path="/Login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
