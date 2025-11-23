@@ -12,7 +12,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { CartContext } from "./CartContext";
 import { useNavigate, useLocation } from "react-router-dom";
-import Header from '../Header'
+import Header from '../../components/Header.jsx'
 
 // prices 
 const PRICES = {

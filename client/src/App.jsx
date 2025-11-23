@@ -2,15 +2,25 @@ import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-r
 import './App.css'
 import './styles/auth.css'
 import './styles/Header.css'
-import Menu from './components/Menu/Menu'
+import Menu from './Components/Menu/Menu.jsx'
 import PizzaHome from "./components/PizzaHome.jsx";
-import { CartProvider } from './components/Menu/CartContext';
+import { CartProvider } from './Components/Menu/CartContext.jsx';
 import Login from "./components/Login.jsx"
 import Signup from "./components/Signup.jsx"
 import PaymentPage from './components/PaymentPage.jsx';
-import OrderConfirmation from './pages/OrderConfirmation';
-import OrderList from './components/OrderList';
+import OrderConfirmation from './pages/OrderConfirmation.jsx';
+import OrderList from './components/OrderList.jsx';
 
+// Add default logins
+const defaultUsers = [
+  { email: "test@example.com", phone: "(123)-456-7890", password: "password123" },
+  { email: "user67@pizza.com", phone: "(777)-333-7777", password: "ILovePizza9" }
+];
+
+// Set users to default logins so they can log in
+if (!localStorage.getItem("users")) {
+  localStorage.setItem("users", JSON.stringify(defaultUsers));
+}
 
 function App() {
   return (
@@ -32,18 +42,6 @@ function App() {
       </Router>
     </CartProvider>
   );
-
-// Add default logins
-const defaultUsers = [
-  { email: "test@example.com", phone: "(123)-456-7890", password: "password123" },
-  { email: "user67@pizza.com", phone: "(777)-333-7777", password: "ILovepizza!" }
-];
-
-// Set users to default logins so they can log in
-if (!localStorage.getItem("users")) {
-  localStorage.setItem("users", JSON.stringify(defaultUsers));
-}
-
 }
 
 // function Home() {
