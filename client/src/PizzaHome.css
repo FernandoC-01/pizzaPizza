@@ -1,146 +1,100 @@
+ /* PizzaHome layout 
+
 .pizza-app-root {
   width: 100%;
-  height: 100vh;
-  background-color: black;
+  min-height: 100vh;
+  background-color: orange;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* top bar  */
-.top-bar {
-  width: 900px;
-  height: 90px;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  margin-top: 10px;
-}
-
-/* left Logo box */
-.logo-box {
-  width: 70px;
-  height: 70px;
-  background-color: #f4d4a3;
-  border: 2px ridge #caa36b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 20px;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-}
-
-/* banner (center) */
-.banner-box {
-  flex: 1;
-  margin: 0 40px;
-  height: 60px;
-  background-color: white;
-  border: 2px ridge #caa36b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.banner-box h1 {
-  margin: 0;
-  color: orange;
-  font-family: Arial, sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-/* cart button (right) */
-.cart-button {
-  width: 80px;
-  height: 50px;
-  margin-right: 20px;
-  background-color: #ff8c3a;
-  border: 2px ridge #caa36b;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/*  main area  */
 .main-area {
-  width: 900px;
-  height: 460px;
-  background-color: #f4d4a3;
   display: flex;
-  padding-top: 20px;
-}
-
-/* left side */
-.left-side {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
-  padding-left: 60px;
-}
-
-.menu-sign {
-  width: 220px;
-  height: 80px;
-  background-color: #f09b57;
-  border: 3px ridge #c87530;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.menu-sign span {
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* info note */
-.info-card {
-  width: 230px;
-  height: 210px;
-  background-color: #ffffff;
-  border: 3px ridge #caa36b;
-  padding: 8px 10px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px 40px;
+  gap: 48px;
   box-sizing: border-box;
+}
+
+/*  Left side: info card  
+.left-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.info-card {
+  background-color: #ffffff;
+  padding: 18px 22px;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  min-width: 260px;
 }
 
 .info-text {
   margin: 0;
   white-space: pre-wrap;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-/* right side */
+/*  Right side: LOGIN + SIGN UP cards  */
+
 .right-side {
-  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  padding-right: 60px;
-  gap: 20px;
+  gap: 24px;
 }
 
 .sign-card {
-  width: 220px;
-  height: 80px;
-  background-color: #f09b57;
-  border: 3px ridge #c87530;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #e97834;
+  padding: 18px 40px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out,
+    background-color 0.1s ease-out;
 }
 
-.sign-card span {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
+.sign-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  background-color: #f0893a;
 }
+
+/*  Responsive tweak for smaller screens  */
+
+/*
+@media (max-width: 768px) {
+  .main-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 20px;
+  }
+
+  .left-side {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .right-side {
+    width: 100%;
+    align-items: center;
+  }
+
+  .sign-card {
+    width: 70%;
+    max-width: 320px;
+  }
+} 
+*/
