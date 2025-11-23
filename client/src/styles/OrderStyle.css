@@ -43,17 +43,18 @@
  
 .order-list-card
 {
+
     background:#e15e00;
     min-height: 550px;
     max-height: fit-content;
-    min-width: 550px;
+    min-width: 50vw;
     max-width: fit-content;
     padding: 10px;
     padding-top: 50px;
 
     border-radius: 4cap;
 
-    
+
 
     position:relative;
 

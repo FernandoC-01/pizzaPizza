@@ -8,6 +8,7 @@ function OrderConfirmation() {
   
   // Get data passed from PaymentPage
   const { orderData, transactionId,  } = location.state || {};
+  const {topping, quantities} = orderData.order;
   
   // If no data (user navigated directly), redirect home
   if (!orderData) {
@@ -16,6 +17,24 @@ function OrderConfirmation() {
   }
   
   const currentDate = new Date().toLocaleString();
+
+  function renderCategory(items) {
+  if (!items || Object.keys(items).length === 0) return null;
+
+  return (
+    <div style={{ marginBottom: "20px"  }}>
+
+        {Object.entries(items).map(([name, qty]) =>
+          qty > 0 ? (
+            <p key={name}>
+              <strong>{name.toUpperCase()}</strong> : {qty}
+            </p>
+          ) : null
+        )}
+
+    </div>
+  );
+}
   
   return (
     <div className="order-confirmation-page">
@@ -35,19 +54,14 @@ function OrderConfirmation() {
         {/* Items List */}
         <div className="items-section">
           <h3>Items Ordered:</h3>
-          {orderData.items.map((item, index) => (
-            <div key={index} className="order-item">
-              <div className="item-details">
-                <p className="item-name">{item.name}</p>
-                <p className="item-specs">
-                  {item.quantity && `Quantity: ${item.quantity}`}
-                </p>
-              </div>
-              <p className="item-price">
-                ${(item.price * (item.quantity || 1)).toFixed(2)}
-              </p>
-            </div>
-          ))}
+
+          <p><strong>SIZE:</strong> {orderData.order.size}</p>
+          <p><strong>CRUST:</strong> {orderData.order.crust}</p>
+          <p><strong>SAUCE:</strong> {orderData.order.sauce}</p>
+          {topping && (<p><strong>TOPPING:</strong> {topping}</p>)}
+          {renderCategory(quantities)}
+          
+
         </div>
         
         {/* Totals */}

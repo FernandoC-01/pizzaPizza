@@ -24,6 +24,13 @@ function PaymentPage() {
     const ChangeDelivery = () => { SetDelveryOrPickup(false); };
     const ChangePickup = () => { SetDelveryOrPickup(true); };
 
+
+    const order = location.state?.order || {};
+
+    const subTotal = location.state?.total || 0;
+    const tax = subTotal * 0.06;
+    const total = subTotal + tax;
+
     //STATE: store payment status 
     const [paymentStatus, setPaymentStatus] = useState('form');
 
@@ -33,14 +40,20 @@ function PaymentPage() {
     //STATE: store error message after failed payment
     const [errorMessage, setErrorMessage] = useState(' ');
 
+
+
     // Use order data from location.state if available, else fallback to mock
     const orderData = location.state?.orderData || location.state?.cartData || {
-        items: [
-            { name: 'Pepperoni Pizza(Large)', price:15.99, quantity: 1 },
-        ],
-        subtotal: 15.99,
-        tax: 1.28,
-        total: 17.27
+        // items: [
+        //     { name: 'Pepperoni Pizza(Large)', price:15.99, quantity: 1 },
+        // ]
+
+        order: order,
+        
+        
+        subtotal: subTotal,
+        tax: tax,
+        total: total
     };
 
 
@@ -133,35 +146,51 @@ function PaymentPage() {
 
                             <h4>Addtional Info</h4>
                             <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
-    
-                                       {paymentStatus === 'form' && (
-                                        <PaymentForm onSubmit={handlePaymentSubmit} />
-                                    )}
-                        </div>
-                    )}
-                            {deliveryOrPickup && (
-                        <div className="order-userData-position"> 
-                            <h4>Addtional Info</h4>
-                            <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
-                        
-
-                             <button type="submit" className="submit-button" onClick={
-
-                                () =>   {console.log("Ipressed"), navigate('/order-confirmation', 
+                                    <br />
+                                    <button className="submit-button" onClick={ () =>   {navigate('/order-confirmation', 
                                             {
                                                 state:
                                                 {
                                                     orderData,
                                                     transactionId: 'TXN-' + Math.random().toString(36).substr(2, 9),
+                                                    
+                                                }
+                                            })
+                                        }}>
+
+                                        Pay ${Math.round(total*100)/100}
+
+                                    </button>
+                                     
+                                        {/* {paymentStatus === 'form' && (
+                                        <PaymentForm onSubmit={handlePaymentSubmit}  />
+                                         )}  */}
+                        </div>
+                    )}
+
+                    {deliveryOrPickup && (
+                        <div className="order-userData-position"> 
+                            <h4>Addtional Info</h4>
+                            <input className="order-inputs" type="text" value = {addiontalInfo} onChange={(e) => SetAdditionalInfo(e.target.value)}/>   
+                        
+                             <button type="submit" className="submit-button" onClick={
+
+                                () =>   {navigate('/order-confirmation', 
+                                            {
+                                                state:
+                                                {
+                                                    orderData,
+                                                    transactionId: 'TXN-' + Math.random().toString(36).substr(2, 9),
+
                                                     // deliveryOrPickup: deliveryOrPickup
                                                 }
                                             })
                                         }}>
-                            Submit Order 
-                            </button>
+                                Submit Order 
+                                </button>
 
                         </div>
-                    )}
+                     )} 
 
             </div>
 

@@ -16,18 +16,12 @@ export default function OrderList() {
 
     const {order,total} = location.state || {order: [], total: 0};
 
-    
+    const {topping, quantities} = order;
 
 
 
     const handleCheckout = () => {
-        const orderData = {
-            items: cart,
-            total: order.total,
-
-        };
-         navigate('/payment', { state: { orderData } });
-        // navigate('/payment', { state: { orderData } });
+         navigate('/payment', { state: { order,total} });
     };
 
 
@@ -39,9 +33,23 @@ export default function OrderList() {
     } 
 
 
+function renderCategory(items) {
+  if (!items || Object.keys(items).length === 0) return null;
 
+  return (
+    <div style={{ marginBottom: "20px"  }}>
 
+        {Object.entries(items).map(([name, qty]) =>
+          qty > 0 ? (
+            <p key={name}>
+              <strong>{name.toUpperCase()}</strong> : {qty}
+            </p>
+          ) : null
+        )}
 
+    </div>
+  );
+}
 
 
 
@@ -77,21 +85,14 @@ export default function OrderList() {
                     <div style={{ padding: "20px" }}>
                         <h2>Your Order</h2>
                         <br />
-                        <p><strong>Size:</strong> {order.size}</p>
-                        <p><strong>Crust:</strong> {order.crust}</p>
-                        <p><strong>Sauce:</strong> {order.sauce}</p>
-                        <p><strong>Drinks:</strong> {order.qty}</p>
+                        <p><strong>SIZE:</strong> {order.size}</p>
+                        <p><strong>CRUST:</strong> {order.crust}</p>
+                        <p><strong>SAUCE:</strong> {order.sauce}</p>
+                        {topping && (<p><strong>Topping:</strong> {topping}</p>) }
+                        {renderCategory(quantities)}
+            
 
-                        {order.toppings?.length > 0 && (
-                            <>
-                            <strong>Toppings:</strong>
-                            <ul>
-                                {order.toppings.map((t) => (
-                                <li key={t}>{t}</li>
-                                ))}
-                            </ul>
-                            </>
-                        )}
+                  
 
                         {order.extras &&
                             Object.entries(order.extras).map(([item, qty]) =>
