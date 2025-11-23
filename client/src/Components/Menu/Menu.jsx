@@ -163,7 +163,7 @@ export default function Menu() {
 
         handleAddToCart();
 
-        navigate("/checkout", { state: { order, total } });
+        navigate("/cart", { state: { order, total } });
     }
 
     return (

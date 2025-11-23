@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 import './App.css'
 import './styles/auth.css'
@@ -101,14 +100,3 @@ function Home() {
 
 
 export default App
-=======
-import PizzaHome from "./PizzaHome.jsx";
-
-function App() {
-  return (
-    <PizzaHome />
-  );
-}
-
-export default App;
->>>>>>> origin
