@@ -7,7 +7,7 @@ function OrderConfirmation() {
   const navigate = useNavigate();
   
   // Get data passed from PaymentPage
-  const { orderData, transactionId,  } = location.state || {};
+  const { orderData, transactionId, deliveryOrPickup  } = location.state || {};
   const {topping, quantities} = orderData.order;
   
   // If no data (user navigated directly), redirect home
@@ -76,16 +76,14 @@ function OrderConfirmation() {
           </div>
           <div className="total-line grand-total">
 
-            <span>Total Paid:</span>
 
-             {/* {!deliveryOrPickup && (
+             {!deliveryOrPickup && (
                <span>Total Paid:</span>
              )}
 
               {deliveryOrPickup && (
                <span>Total amount:</span>
              )}
-           */}
 
 
 

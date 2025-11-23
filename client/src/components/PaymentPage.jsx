@@ -153,6 +153,7 @@ function PaymentPage() {
                                                 {
                                                     orderData,
                                                     transactionId: 'TXN-' + Math.random().toString(36).substr(2, 9),
+                                                    deliveryOrPickup: deliveryOrPickup
                                                     
                                                 }
                                             })
@@ -181,8 +182,7 @@ function PaymentPage() {
                                                 {
                                                     orderData,
                                                     transactionId: 'TXN-' + Math.random().toString(36).substr(2, 9),
-
-                                                    // deliveryOrPickup: deliveryOrPickup
+                                                    deliveryOrPickup: deliveryOrPickup
                                                 }
                                             })
                                         }}>

@@ -312,20 +312,20 @@ export default function Menu() {
         </Typography>
 
         <Box>
-            <Button
+            {/* <Button
                 variant="contained"
                 sx={{ mr: 2, backgroundColor: "#f7d1a3", color: "#4a2d1c" }}
                 onClick={handleAddToCart}
             >
             Add to Cart
-            </Button>
+            </Button> */}
 
             <Button
             variant="contained"
             sx={{ backgroundColor: "#f7d1a3", color: "#4a2d1c" }}
             onClick={handleCheckout}
             >
-            View Cart
+            Go To Cart
             </Button>
         </Box>
         </Box>
