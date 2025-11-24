@@ -45,9 +45,8 @@ const Header = () => {
          <nav style={{ padding: '15px' ,background: '#8B4513', color: 'white', }}> 
           <Link to="/" style={{ marginRight: '20px', color: 'white', textDecoration: 'none' }}>Home</Link>
           <Link to="/menu" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Menu</Link>
-          {/* <Link to="/cart" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Shopping Cart</Link>
-          <Link to="/payment" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Payment</Link> */}
           <Link to="/Login" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Login</Link>
+          <Link to="/signup" style={{ marginRight: '20px',color: 'white', textDecoration: 'none' }}>Signup</Link>
 
           {loggedIn && (
             <button className="logout-btn" onClick={handleLogout}>Logout</button>
