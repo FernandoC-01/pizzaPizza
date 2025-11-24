@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/PizzaHome.css";
 import Header from "./Header";
 import { Link } from "react-router-dom";
-import logo from "../assets/pizzaLogo.png"
+import logo from "../assets/pizzaLogo2.png"
 
 function PizzaHome() {
   const infoText = 
