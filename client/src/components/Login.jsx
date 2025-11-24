@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/auth.css"
 import Header from "./Header"
@@ -10,6 +10,22 @@ const Login = () => {
     const navigate = useNavigate()
     const [message, setMessage] = useState("")
     const [messageType, setMessageType] = useState("")
+
+    useEffect(() => {
+        const user = localStorage.getItem("currentUser")
+
+        if (user) {
+            setMessage("You are logged in.")
+            setMessageType("error")
+
+            //delay nav to show message to user (1.5 sec)
+            const timer = setTimeout(() => {
+            navigate("/menu")
+            }, 1500)
+
+            return () => clearTimeout(timer)
+        }
+    }, [])
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -41,8 +57,8 @@ const Login = () => {
     }
 
     return (
-        <>
         
+        <>
         <Header />
 
         <div className="auth-page">
